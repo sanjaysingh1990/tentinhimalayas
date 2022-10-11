@@ -77,59 +77,38 @@
                   <li class="nav-item" role="presentation"><a class="nav-link active" href="#tabs-4-1" data-toggle="tab">BASIC INFO</a></li>
                   <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-4-2" data-toggle="tab">CAMP FACILITIES</a></li>
                   <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-4-3" data-toggle="tab">CAMP ACTIVITIES</a></li>
-                  <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-4-3" data-toggle="tab">MORE</a></li>
+                  <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-4-4" data-toggle="tab">MORE</a></li>
              
                 </ul>
                 <!-- Tab panes-->
                 <div class="tab-content">
+
+                 <!-- Tab Basic info-->  
                   <div class="tab-pane fade show active" id="tabs-4-1">
-                    <br/>     
-                    <p>Aliquam malesuada bibendum arcu vitae elementum curabitur. A erat nam at lectus urna duis convallis convallis tellus. Sit amet consectetur adipiscing elit pellentesque.</p>
-                      </div>
-                  <div class="tab-pane fade" id="tabs-4-2">
-                    <p>Aliquam malesuada bibendum arcu vitae elementum curabitur. A erat nam at lectus urna duis convallis convallis tellus. Sit amet consectetur adipiscing elit pellentesque.</p>
-                  
-                  <ul class="row-16 list-0 list-custom list-marked list-marked-sm list-marked-secondary">
-                    <li>Lorem ipsum</li>
-                    <li>Consectetur adipiscing</li>
-                    <li>Sed do eiusmod</li>
-                    <li>Tempor incididunt</li>
-                    <li>Sem fringilla</li>
-                    <li>Ut venenatis</li>
-                  </ul>
-                          </div>
-                  <div class="tab-pane fade" id="tabs-4-3">
-                    <p>Orci nulla pellentesque dignissim enim sit. Elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus. Nibh mauris cursus mattis molestie a iaculis at erat pellentesque.</p>
-                    <div class="text-center text-sm-left offset-top-30 tab-height">
-                      <ul class="row-16 list-0 list-custom list-marked list-marked-sm list-marked-secondary">
-                        <li>Lorem ipsum</li>
-                        <li>Consectetur adipiscing</li>
-                        <li>Sed do eiusmod</li>
-                        <li>Tempor incididunt</li>
-                        <li>Sem fringilla</li>
-                        <li>Ut venenatis</li>
-                      </ul>
-                    </div>
-                    <div class="group-md group-middle"><a class="button button-width-xl-230 button-primary button-pipaluk" href="#">Get in touch</a><a class="button button-black-outline button-md" href="#">Download presentation</a></div>
                   </div>
 
-                  <div class="tab-pane fade" id="tabs-4-2">
-                    <p>Aliquam malesuada bibendum arcu vitae elementum curabitur. A erat nam at lectus urna duis convallis convallis tellus. Sit amet consectetur adipiscing elit pellentesque.</p>
+                  <!-- Tab camp facilities-->             
+                  <div class="tab-pane fade" id="tabs-4-2">        
+                  </div>
                   
-                  <ul class="row-16 list-0 list-custom list-marked list-marked-sm list-marked-secondary">
-                    <li>Lorem ipsum</li>
-                    <li>Consectetur adipiscing</li>
-                    <li>Sed do eiusmod</li>
-                    <li>Tempor incididunt</li>
-                    <li>Sem fringilla</li>
-                    <li>Ut venenatis</li>
-                  </ul>
-                          </div>
+                    <!-- Tab camp activities-->
+                  <div class="tab-pane fade" id="tabs-4-3">
+                   
+                    </div>
+                    
+                     <!-- Tab more-->
+                  <div class="tab-pane fade" id="tabs-4-4">
+                   
+                  </div>
+
+                  </div>
+                  
+                  
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        
       </section>
       <!-- Latest Projects-->
       <section class="section section-sm section-fluid bg-default">
@@ -329,7 +308,6 @@
       
       if(queryString=="1")
        {
-        
         $("#img1").attr({ "src": "images/destination/des_kasar_1.webp" });
         $('#heading-info').text("Simtola, Almora");
         $(".breadcrumbs-custom-path").append('<li><a href="index.html">Simtola</a></li>');
@@ -338,6 +316,51 @@
        
         $('#top-parallax-2').remove();
         $('#top-parallax-3').remove();
+
+        // Basic info tab info
+        var htmlText="<br/>" + "  <p>Aliquam malesuada bibendum arcu vitae elementum curabitur. A erat nam at lectus urna duis convallis convallis tellus. Sit amet consectetur adipiscing elit pellentesque.</p>" + " <p><span style='color:red'>Distance from major cities: Delhi:</span> 300 kms | Chandigarh: 230 kms | Haridwar: 35 kms | Dehradun: 55 kms"+
+                      "<p style='margin:0'><span style='color:red'>Route:</span> Delhi Ghaziabad Meerut Roorkee Haridwar Rishikesh Tapovan Neelkanth Bridge Camp Wildex</p>"+
+                      "<p style='margin:0'><span style='color:red'>Weather:</span> Sept-Nov: Pleasant | Dec-Jan: Cold | Feb-Mar: Pleasant | Apr-Jun: Hot during day, pleasant at night</p>"+
+                      "<p style='margin:0'><span style='color:red'>Season:</span> Camp is open throughout the year; River Rafting is open from Mid-September to June</p>"
+     
+                      $('#tabs-4-1').html(htmlText);
+
+        // Camp facilities tab data              
+        var htmlText2= '<br/><p>Aliquam malesuada bibendum arcu vitae elementum curabitur. A erat nam at lectus urna duis convallis convallis tellus. Sit amet consectetur adipiscing elit pellentesque.</p>'+
+                  
+                   '<ul class="row-16 list-0 list-custom list-marked list-marked-sm list-marked-secondary">'+
+                    '<li>Stay in Camps/Cottages with proper bedding</li>'+
+                    '<li>Neat and clean western toilets with flush & running water</li>'+
+                    '<li>Buffet meals in central Dining Area</li>'+
+                    '<li>Electricity with power backup</li>'+
+                    '<li>Large Conference Hall with Audio/Video facility</li>'+
+                     '</ul>'       
+                     
+                     $('#tabs-4-2').html(htmlText2);
+
+
+          // Camp activities tab data              
+        var htmlText3= '<br/><p>Aliquam malesuada bibendum arcu vitae elementum curabitur. A erat nam at lectus urna duis convallis convallis tellus. Sit amet consectetur adipiscing elit pellentesque.</p>'+
+                  
+                  '<ul class="row-16 list-0 list-custom list-marked list-marked-sm list-marked-secondary">'+
+                   '<li>Stay in C</li>'+
+                   '<li>Neat and clean </li>'+
+                   '<li>Buffet meals </li>'+
+                   '<li>Electricity </li>'+
+                   '<li>Large Conference Hall </li>'+
+                    '</ul>'       
+                    
+                    $('#tabs-4-3').html(htmlText3);  
+                    
+                    
+           // More tab data              
+        var htmlText4= '<br/><p><span style="color:red">Nearby Places to Visit:</p></span>'+
+                       '<p>Ganga Aarti - Parmarth <span style="color:red">9 kms</span> | Bungee Jump Station <span style="color:red">8 kms</span></p>'+
+                       '<p>Neelkanth Mandir <span style="color:red">15 kms</span> | Paintball Point <span style="color:red">1 km</span></p>'+
+                       '<p>Jeep Safari - Rajaji <span style="color:red">35 kms</span></p>'
+
+                    
+                    $('#tabs-4-4').html(htmlText4);         
        }
        else if(queryString=="2")
        {
@@ -347,6 +370,31 @@
         $('#gallery1').remove();
         $('#top-parallax-1').remove();
         $('#top-parallax-3').remove();
+
+
+         // Basic info tab info
+         var htmlText="<br/>" + "  <p>Aliquam malesuada bibendum arcu vitae elementum curabitur. A erat nam at lectus urna duis convallis convallis tellus. Sit amet consectetur adipiscing elit pellentesque.</p>" + " <p><span style='color:red'>Distance from major cities: Delhi:</span> 400 kms | Chandigarh: 230 kms | Haridwar: 35 kms | Dehradun: 55 kms"+
+                      "<p style='margin:0'><span style='color:red'>Route:</span> Delhi Ghaziabad Meerut Roorkee Haridwar Rishikesh Tapovan Neelkanth Bridge Camp Wildex</p>"+
+                      "<p style='margin:0'><span style='color:red'>Weather:</span> Sept-Nov: Pleasant | Dec-Jan: Cold | Feb-Mar: Pleasant | Apr-Jun: Hot during day, pleasant at night</p>"+
+                      "<p style='margin:0'><span style='color:red'>Season:</span> Camp is open throughout the year; River Rafting is open from Mid-September to June</p>"
+     
+                      $('#tabs-4-1').html(htmlText);
+
+
+
+           // Camp facilities tab data              
+        var htmlText2= '<br/><p>Aliquam malesuada bibendum arcu vitae elementum curabitur. A erat nam at lectus urna duis convallis convallis tellus. Sit amet consectetur adipiscing elit pellentesque.</p>'+
+                  
+                  '<ul class="row-16 list-0 list-custom list-marked list-marked-sm list-marked-secondary">'+
+                   '<li>Stay in Camps/Cottages with proper bedding</li>'+
+                   '<li>Neat and clean western toilets with flush & running water</li>'+
+                   '<li>Buffet meals in central Dining Area</li>'+
+                   '<li>Electricity with power backup</li>'+
+                   '<li>Large Conference Hall with Audio/Video facility</li>'+
+                    '</ul>'       
+                    
+                    $('#tabs-4-2').html(htmlText2);            
+
        }
        else{
         $('#heading-info').text("Liti, Bageshwar");
@@ -355,24 +403,20 @@
         $('#top-parallax-2').remove();
         $('#top-parallax-1').remove();
         $('#gallery2').remove();
+
+        // Basic info tab info
+        var htmlText="<br/>" + "  <p>Aliquam malesuada bibendum arcu vitae elementum curabitur. A erat nam at lectus urna duis convallis convallis tellus. Sit amet consectetur adipiscing elit pellentesque.</p>" + " <p><span style='color:red'>Distance from major cities: Delhi:</span> 500 kms | Chandigarh: 230 kms | Haridwar: 35 kms | Dehradun: 55 kms"+
+                      "<p style='margin:0'><span style='color:red'>Route:</span> Delhi Ghaziabad Meerut Roorkee Haridwar Rishikesh Tapovan Neelkanth Bridge Camp Wildex</p>"+
+                      "<p style='margin:0'><span style='color:red'>Weather:</span> Sept-Nov: Pleasant | Dec-Jan: Cold | Feb-Mar: Pleasant | Apr-Jun: Hot during day, pleasant at night</p>"+
+                      "<p style='margin:0'><span style='color:red'>Season:</span> Camp is open throughout the year; River Rafting is open from Mid-September to June</p>"
+     
+                      $('#tabs-4-1').html(htmlText);
        }
        
       
-        var htmlText="<br/>" + "  <p>Aliquam malesuada bibendum arcu vitae elementum curabitur. A erat nam at lectus urna duis convallis convallis tellus. Sit amet consectetur adipiscing elit pellentesque.</p>" + " <p>Distance from major cities: Delhi: 245 kms | Chandigarh: 230 kms | Haridwar: 35 kms | Dehradun: 55 kms"+
-                      "Route: Delhi Ghaziabad Meerut Roorkee Haridwar Rishikesh Tapovan Neelkanth Bridge Camp Wildex"+
-                      "Weather: Sept-Nov: Pleasant | Dec-Jan: Cold | Feb-Mar: Pleasant | Apr-Jun: Hot during day, pleasant at night"+
-                      "Season: Camp is open throughout the year; River Rafting is open from Mid-September to June</p>"
-         
-        var galleryImage4='<div class="owl-item">'+
-            '<article class="thumbnail thumbnail-mary">'+
-              '<div class="thumbnail-mary-figure"><img src="images/destination/des_liti_5.webp" alt="" width="420" height="308"/>'+
-              '</div>'+
-              '<div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="images/destination/des_liti_5.webp" data-lightgallery="item"><img src="images/destination/des_liti_5.webp" alt="" width="420" height="308"/></a>'+
-              '</div>'+
-            '</article>'+
-          '</div>'              
+              
       
-       $('#tabs-4-1').html(htmlText);
+      
 });
    </script>
 
