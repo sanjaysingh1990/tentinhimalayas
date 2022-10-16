@@ -66,7 +66,7 @@
       <section class="section section-sm section-first bg-default text-md-left">
         <div class="container">
           <div class="row row-50 justify-content-center align-items-xl-center">
-            <div class="col-md-10 col-lg-5 col-xl-6"><img src="images/logo/ic_logo_large-2.png" alt="" width="519" height="564"/>
+            <div  class="col-md-10 col-lg-5 col-xl-6"><img id="side-image" src="images/logo/ic_logo_large-2.png" alt="" width="519" height="564"/>
             </div>
             <div class="col-md-10 col-lg-7 col-xl-6">
               <h1  class="text-spacing-25 font-weight-normal title-opacity-5" id="heading-info">Simtola, Almora</h1>
@@ -155,7 +155,7 @@
           <div class="owl-item">
             <!-- Thumbnail Classic-->
             <article class="thumbnail thumbnail-mary">
-              <div class="thumbnail-mary-figure"><img id="img1" src="images/destination/simtola-destination/dest-image-1.webp"  alt="" width="420" height="308"/>
+              <div class="thumbnail-mary-figure"><img id="img2" src="images/destination/simtola-destination/dest-image-1.webp"  alt="" width="420" height="308"/>
               </div>
               <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="images/destination/simtola-destination/dest-image-1.webp" data-lightgallery="item"><img src="images/gallery-image-11-420x308.jpg" alt="" width="420" height="308"/></a>
               </div>
@@ -497,10 +497,12 @@
       
       if(queryString=="1")
        {
-        $("#img1").attr({ "src": "images/destination/des_kasar_1.webp" });
+        $("#side-image").attr({ "src": "images/simtola-tour-detail-image.png" }); 
+        $("#img1").attr({ "src": "images/logo/website_logo.png" });
         $('#heading-info').text("Village Walk");
         $(".breadcrumbs-custom-path").append('<li><a href="index.html">Village</a></li>');
         $(".breadcrumbs-custom-path").append(' <li class="active">Walk</li>');
+        
         $('#gallery2').remove();
         $('#gallery3').remove();
        
@@ -554,6 +556,8 @@
        }
        else if(queryString=="2")
        {
+        $("#side-image").attr({ "src": "images/simtola-tour-detail-image.png" });
+    
         $('#heading-info').text("Simtola Camping");
         $(".breadcrumbs-custom-path").append('<li><a href="index.html">Simtola</a></li>');
         $(".breadcrumbs-custom-path").append(' <li class="active">Camping</li>');
@@ -589,6 +593,7 @@
 
        }
        else{
+        $("#side-image").attr({ "src": "images/liti-tour-detail-info-image.png" });
         $('#heading-info').text("Liti Camping");
         $(".breadcrumbs-custom-path").append('<li><a href="index.html">Liti</a></li>');
         $(".breadcrumbs-custom-path").append(' <li class="active">Camping</li>');
@@ -616,8 +621,8 @@
                     '<li>3 times meals including Veg and Non-Veg</li>'+
                     '<li>Soloar electricity with power backup</li>'+
                     '<li>Hot & Cold water for bath.</li>'+
+                    '<li>Neat and clean western toilet</li>'+
                      '</ul>'       
-                     
                      $('#tabs-4-2').html(htmlText2);
 
 
