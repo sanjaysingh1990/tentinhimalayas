@@ -23,7 +23,7 @@
 	
 	
 	  firebase.initializeApp(config);
-
+	  
 	  function sendMessage(form,select,output) {	
 		var enqueryRef = firebase.database().ref("enquiry/");
 
@@ -73,10 +73,11 @@
 			 
 			}
 		  });
-		 
-	
+		
 
 	  }
+
+	
 
 	// Global variables
 	var userAgent = navigator.userAgent.toLowerCase(),
