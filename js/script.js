@@ -1,5 +1,83 @@
 "use strict";
 (function () {
+
+	// Initialize Firebase
+
+	const config = {
+
+		apiKey: "AIzaSyCr_tQKCPR0i3IVkxMx40H8HmHd93GvrYc",
+	
+		authDomain: "inapp-96885741.firebaseapp.com",
+	
+		databaseURL: "https://inapp-96885741.firebaseio.com",
+	
+		projectId: "inapp-96885741",
+	
+		storageBucket: "inapp-96885741.appspot.com",
+	
+		messagingSenderId: "1031749484359",
+	
+		appId: "1:1031749484359:web:4416e21fd80f2a7d97d662"
+	
+	  };
+	
+	
+	  firebase.initializeApp(config);
+
+	  function sendMessage(form,select,output) {	
+		var enqueryRef = firebase.database().ref("enquiry/");
+
+		var formData = new FormData(form[0]);
+		var name = formData.get('name');
+		var email = formData.get('email');
+		var phone = formData.get('phone');
+		var message = formData.get('message');
+
+
+	
+		enqueryRef.push ({
+			name: name,
+			email: email,
+			phone: phone,
+			message: message
+		 }, function(error) {
+			form
+			.addClass('success')
+			.removeClass('form-in-process');
+		
+			form.clearForm();
+		
+			if (select.length) {
+				select.select2("val", "");
+			}
+		
+			form.find('input, textarea').trigger('blur');
+
+			output.html('<p><span class="icon text-middle "></span><span>Request sent successfaully!</span></p>');
+			output.addClass("active");
+
+			setTimeout(function () {
+				output.removeClass("active error success");
+				form.removeClass('success');
+			}, 1000);
+		
+			
+			if (error)
+			{
+			  console.log('Error has occured during saving process')
+			  alert('Something went wrong please try again later!');
+			}
+			else
+			{
+			  console.log("Data hss been saved succesfully")
+			 
+			}
+		  });
+		 
+	
+
+	  }
+
 	// Global variables
 	var userAgent = navigator.userAgent.toLowerCase(),
 			initialDate = new Date(),
@@ -1239,9 +1317,19 @@
 							form.addClass('form-in-process');
 
 							if (output.hasClass("snackbars")) {
-								output.html('<p><span class="icon text-middle fa fa-circle-o-notch fa-spin icon-xxs"></span><span>Sending</span></p>');
+								output.html('<p><span class="icon text-middle fa fa-circle-o-notch fa-spin icon-xxs"></span><span>Sending wait</span></p>');
 								output.addClass("active");
 							}
+							var form = $(plugins.rdMailForm[this.extraData.counter]),
+							output = $("#" + form.attr("data-form-output")),
+							select = form.find('select');
+
+							if (formHasCaptcha) {
+								grecaptcha.reset();
+							}
+							sendMessage(form,select,output)					
+				
+
 						} else {
 							return false;
 						}
@@ -1304,7 +1392,7 @@
 						setTimeout(function () {
 							output.removeClass("active error success");
 							form.removeClass('success');
-						}, 3500);
+						}, 500);
 					}
 				});
 			}
