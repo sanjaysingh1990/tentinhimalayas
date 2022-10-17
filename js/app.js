@@ -1,59 +1,45 @@
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (60 * 60 * 1000));
+    let expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+} 
 
-// Initialize Firebase
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+} 
 
- const config = {
+function updateCounter() {
+    var updateCounterRef = firebase.database().ref("pagevisitcounter/");
 
-    apiKey: "AIzaSyCr_tQKCPR0i3IVkxMx40H8HmHd93GvrYc",
+    updateCounterRef
+        .child('totalCount')
+        .set(firebase.database.ServerValue.increment(1))
 
-    authDomain: "inapp-96885741.firebaseapp.com",
+}
 
-    databaseURL: "https://inapp-96885741.firebaseio.com",
+$(document).ready(function() {
 
-    projectId: "inapp-96885741",
-
-    storageBucket: "inapp-96885741.appspot.com",
-
-    messagingSenderId: "1031749484359",
-
-    appId: "1:1031749484359:web:4416e21fd80f2a7d97d662"
-
-  };
-
-
-  firebase.initializeApp(config);
+     
+    var cookieValue = getCookie("interval");
+    //  alert('cookie value ' + cookieValue);
+    if (cookieValue.length === 0) {
+        setCookie("interval", 1, 1);
+        updateCounter();
+    }
 
 
 
-  
-  
-  function sendMessage(e) {
-  
-	//   var userID = e.target.getAttribute("child-key");
-  
-	//   const userRef = dbRef.child('users/' + userID);
-	//   const userDetailUI = document.getElementById("userDetail");
-  
-	//   userDetailUI.innerHTML = ""
-  
-	//   userRef.on("child_added", snap => {
-  
-  
-	// 	  var $p = document.createElement("p");
-	// 	  $p.innerHTML = snap.key  + " - " +  snap.val()
-	// 	  userDetailUI.append($p);
-  
-  
-	//   });
-
-	var enqueryRef = firebase.database().ref("enquiry/");
-
-	enqueryRef.push ({
-		name: "John",
-		number: 1,
-		age: 30
-	 });
-	 
-
-alert("enquery submitted");
-  
-  }
+});
