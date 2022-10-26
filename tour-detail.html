@@ -34,7 +34,7 @@
 
 <body>
     <div class="ie-panel">
-        <a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
+        <a href="https://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
     </div>
     <div class="preloader">
         <div class="preloader-body">
@@ -622,9 +622,9 @@
                     "src": "images/simtola-tour-detail-image.png"
                 });
 
-                $('#heading-info').text("Simtola Camping");
-                $(".breadcrumbs-custom-path").append('<li><a href="index.html">Simtola</a></li>');
-                $(".breadcrumbs-custom-path").append(' <li class="active">Camping</li>');
+                $('#heading-info').text("Dhakuri");
+                $(".breadcrumbs-custom-path").append('<li><a href="index.html">Dhakuri</a></li>');
+                $(".breadcrumbs-custom-path").append(' <li class="active">Camping & Treking</li>');
                 $('#gallery1').remove();
                 $('#gallery3').remove();
 
@@ -633,34 +633,80 @@
 
 
                 // Basic info tab info
-                var htmlText = "<br/>" + "  <p>Aliquam malesuada bibendum arcu vitae elementum curabitur. A erat nam at lectus urna duis convallis convallis tellus. Sit amet consectetur adipiscing elit pellentesque.</p>" + " <p><span style='color:red'>Distance from major cities: Delhi:</span> 400 kms | Chandigarh: 230 kms | Haridwar: 35 kms | Dehradun: 55 kms" +
-                    "<p style='margin:0'><span style='color:red'>Route:</span> Delhi Ghaziabad Meerut Roorkee Haridwar Rishikesh Tapovan Neelkanth Bridge Camp Wildex</p>" +
-                    "<p style='margin:0'><span style='color:red'>Weather:</span> Sept-Nov: Pleasant | Dec-Jan: Cold | Feb-Mar: Pleasant | Apr-Jun: Hot during day, pleasant at night</p>" +
-                    "<p style='margin:0'><span style='color:red'>Season:</span> Camp is open throughout the year; River Rafting is open from Mid-September to June</p>"
+                var htmlText = "<p><b>Dhakuri</b> is a small hamlet in the lap of nature, surrounded by the flora and fauna of high" +
+                    "altitude with a view of majestic mountain range, this place is perfect" +
+                    "for a quiet weekend and" +
+                    "festival session.It is located in <b><i>Uttarakhand’s Bageshwar district(Kumaon region)</i></b>.</p>" +
+                    "<p>Dhakuri is the gateway of the two most beautiful valleys of Kumaon region Pindari and " +
+                    "Sunderdhunga.It is also a place where you have to go to experience <b><i>snow without facing the " +
+                    "harsh temperature</i></b>.It is an unusually flat, high altitude meadow.The lush green grass here is" +
+                    "accentuated by the surrounding forests.To add to this are the snow - capped mountains of the" +
+                    "southern rim of <b><i>Nanda Devi Sanctuary</b></i> that loom just ahead of you.</p>" +
+                    "<p>A short trek from the Dhakuricampsite to Dhakuri - Khal offers even better views of the" +
+                    "mountains, especially at <b><i>sunrise</b></i>.If you walk further up" +
+                    "for about an hour, towards the South" +
+                    "West forested ridge of the pass, you reach <b><i>Chilta Top</b></i>.The view you here is like no other– you " +
+                    "can capture the <b><i>mountain ranges of Nanda Devi</b></i> all the way in a single frame! </p>" +
+                    "<p><span style='color:red'>Trek Duration:</span> 4 DAYS – 3 NIGHTS | <span style='color:red'>Pick-up Point:</span> Kathgodam | <span style='color:red'>Trek Level:</span> Easy | <span style='color:red'> Maximum Altitude:</span> 3400 Meters | <span style='color:red'>Best Time:</span>    All year (except monsoon) | <span style='color:red'>Located:</span> Bageshwar, Kumaon | <span style='color:red'>Nearest Railway Station:</span> Kathgodam | <span style='color:red'>Nearest Airport:</span> Pantnagar | <span style='color:red'>Famous for:</span>    Trekking, Camping, Winter Trek, Summer Trek, Easy Trek</p>"
 
                 $('#tabs-4-1').html(htmlText);
 
 
 
                 // Camp facilities tab data              
-                var htmlText2 = '<br/><p>Aliquam malesuada bibendum arcu vitae elementum curabitur. A erat nam at lectus urna duis convallis convallis tellus. Sit amet consectetur adipiscing elit pellentesque.</p>' +
+                var htmlText2 = '<p>Switching from home bed to camp bed which seems not comfortable to everyone. We here take care of the same feeling by providing high quality of tent and sleeping begs. </p>' +
 
                     '<ul class="row-16 list-0 list-custom list-marked list-marked-sm list-marked-secondary">' +
-                    '<li>Stay in Camps/Cottages with proper bedding</li>' +
-                    '<li>Neat and clean western toilets with flush & running water</li>' +
-                    '<li>Buffet meals in central Dining Area</li>' +
-                    '<li>Electricity with power backup</li>' +
-                    '<li>Large Conference Hall with Audio/Video facility</li>' +
+                    '<li>Transport Facility Kathgodam To Kathgodam</li>' +
+                    '<li>Forest Permit and entrance fee</li>' +
+                    '<li>Accommodation in tents on two/three person share basis</li>' +
+                    '<li>All meals: breakfast, packed lunch, tea, coffee, snacks, soup and dinner</li>' +
+                    '<li>(All camping gears)</li>' +
+                    '<li>High quality tents</li>' +
+                    '<li>Sleeping bags</li>' +
+                    '<li>Mattress</li>' +
+                    '<li>Liner</li>' +
+                    '<li>Separate Toilet tents – Ladies and Gents</li>' +
+                    '<li>Kitchen team</li>' +
+                    '<li>Good Experience Trek Leader guide and Technical guide</li>' +
+                    '<li>Medical Kit</li>' +
+                    '<li>Oxygen cylinder, Crampons and Gaiters (on the bases of needs of trek)</li>' +
                     '</ul>'
 
                 $('#tabs-4-2').html(htmlText2);
+
+                // Camp activities tab data              
+                var htmlText3 =
+                    '<ul class="row-16 list-0 list-custom list-marked list-marked-sm list-marked-secondary">' +
+                    '<li><b>Day 1-</b> Pick up to you from Kathgodam – Drive to Khali-dhar. <b>Whole day Driving (199km)</b> </li>' +
+                    '<li><b>Day 2-</b> Trek from Ratmati to Dhakuri  <span style="color:red">|</span> 9.3km trek <span style="color:red">|</span> Personable Mountain view from the camp <span style="color:red">|</span> Rest and Acclimatization Walk towards Dhakuri-Khal <span style="color:red">|</span> Altitude : 2680 Mtr</li>' +
+                    '<li><b>Day 3-</b> Trek from Dhakuri to Chilta Top. 2.5km trek <span style="color:red">|</span> 180˚ Mountain view from Kumaon Himalaya to Nepal Himalaya <span style="color:red">|</span> Altitude: 3400 m(highest point of whole itinerary) </li>' +
+                    '<li><b>Day 4-</b> - Trek from Dhakuri to Dhur  <span style="color:red">|</span> Then drive back to Kathgodam  <span style="color:red">|</span> 3km trek; then drive Back to Home from Mountain. </li>' +
+                    '</ul>'
+
+                $('#tabs-4-3').html(htmlText3);
+
+
+                // More tab data              
+                var htmlText4 = '<h5> What is Not Include In This Trek?</h5>' +
+                    '<ul class="row-16 list-0 list-custom list-marked list-marked-sm list-marked-secondary">' +
+                    '<li>Personal Insurance</li>' +
+                    '<li>Medical Certificate</li>' +
+                    '<li>Personal toiletry Items and Personal Medicine kit</li>' +
+                    '<li>Mules and Porters for Personal Luggage</li>' +
+                    '<li>On first day En Route to base camp the Breakfast and Lunch are Not Included</li>' +
+                    '<li>Last Day En Route Lunch and Dinner are Not Included</li>' +
+                    '</ul>'
+
+                $('#tabs-4-4').html(htmlText4);
+
 
             } else {
                 $("#side-image").attr({
                     "src": "images/liti-tour-detail-info-image.png"
                 });
-                $('#heading-info').text("Liti Camping");
-                $(".breadcrumbs-custom-path").append('<li><a href="index.html">Liti</a></li>');
+                $('#heading-info').text("Leti Camping");
+                $(".breadcrumbs-custom-path").append('<li><a href="index.html">Leti</a></li>');
                 $(".breadcrumbs-custom-path").append(' <li class="active">Camping</li>');
                 $('#top-parallax-2').remove();
                 $('#top-parallax-1').remove();
@@ -668,7 +714,7 @@
                 $('#gallery2').remove();
 
                 // Basic info tab info
-                var htmlText = "<p>Liti village is located in Kapkot tehsil of Bageshwar district in Uttarakhand, India. It is situated 35km away from sub-district headquarter Kapkot (tehsildar office) and 59km away from district headquarter Bageshwar.</p>" + " <p><span style='color:red'>Distance from major cities:</span>  <b>Delhi:</b> 505 kms | <b>PantNager:</b> 230 kms | <b>Kathgodam:</b> 214 kms | <b>Haldwani:</b> 225 kms" +
+                var htmlText = "<p>Leti village is located in Kapkot tehsil of Bageshwar district in Uttarakhand, India. It is situated 35km away from sub-district headquarter Kapkot (tehsildar office) and 59km away from district headquarter Bageshwar.</p>" + " <p><span style='color:red'>Distance from major cities:</span>  <b>Delhi:</b> 505 kms | <b>PantNager:</b> 230 kms | <b>Kathgodam:</b> 214 kms | <b>Haldwani:</b> 225 kms" +
                     "<p style='margin:0'><span style='color:red'>Route:</span> Delhi Ghaziabad Meerut Roorkee Haridwar Rishikesh Tapovan Neelkanth Bridge Camp Wildex</p>" +
                     "<p style='margin:0'><span style='color:red'>Weather:</span> Sept-Nov: Pleasant | Dec-Jan: Cold | Feb-Mar: Pleasant | Apr-Jun: Hot during day, pleasant at night</p>" +
                     "<p style='margin:0'><span style='color:red'>Season:</span> Camp is open throughout the year; River Rafting is open from Mid-September to June</p>" +
@@ -676,48 +722,47 @@
                     '  <iframe  src="https://www.youtube.com/embed/tgbNymZ7vqY" frameborder="0" allowfullscreen></iframe>'
 
                 $('#tabs-4-1').html(htmlText);
+
+
+                // Camp facilities tab data              
+                var htmlText2 = '<p>Switching from home bed to camp bed which seems not comfortable to everyone. We here take care of the same feeling by providing high quality of tent and sleeping begs. </p>' +
+
+                    '<ul class="row-16 list-0 list-custom list-marked list-marked-sm list-marked-secondary">' +
+                    '<li>Stay in Camps with proper bedding</li>' +
+                    '<li>Good quality of sleeping begs</li>' +
+                    '<li>Good quality of tents</li>' +
+                    '<li>3 times meals including Veg and Non-Veg</li>' +
+                    '<li>Soloar electricity with power backup</li>' +
+                    '<li>Hot & Cold water for bath.</li>' +
+                    '<li>Neat and clean western toilet</li>' +
+                    '</ul>'
+                $('#tabs-4-2').html(htmlText2);
+
+
+
+                // Camp activities tab data              
+                var htmlText3 =
+                    '<ul class="row-16 list-0 list-custom list-marked list-marked-sm list-marked-secondary">' +
+                    '<li><b>Day 1-</b> Arrival from any locaiton to Almora. Will do night stay here and spend quality time in kasar with messmirizing weather. <b>With tasty Dinner and Breakfast.</b> </li>' +
+                    '<li><b>Day 2-</b> After having breakfast we will head towards the Leti including the Lunch. It is 3 hours drive from Kasar to Leti to reach camp site it is 30 minutes walk from Leti main station.</li>' +
+                    '<li><b>Day 3-</b> Jungle walk and Lunch at camp site.</li>' +
+                    '<li><b>Day 4-</b> Leti walk including picknic Lunch.</li>' +
+                    '<li><b>Day 5-</b> Leti walk including packed Lunch.</li>' +
+                    '<li><b>Day 6-</b> After completing the awesome journey we will get back to kasar devi and start jorney back to source</li>' +
+                    '</ul>'
+
+                $('#tabs-4-3').html(htmlText3);
+
+
+                // More tab data              
+                var htmlText4 = '<p><span style="color:red">Nearby Places to Visit:</p></span>' +
+                    '<p>Ganga Aarti - Parmarth <span style="color:red">9 kms</span> | Bungee Jump Station <span style="color:red">8 kms</span></p>' +
+                    '<p>Neelkanth Mandir <span style="color:red">15 kms</span> | Paintball Point <span style="color:red">1 km</span></p>' +
+                    '<p>Jeep Safari - Rajaji <span style="color:red">35 kms</span></p>'
+
+                $('#tabs-4-4').html(htmlText4);
+
             }
-
-            // Camp facilities tab data              
-            var htmlText2 = '<p>Switching from home bed to camp bed which seems not comfortable to everyone. We here take care of the same feeling by providing high quality of tent and sleeping begs. </p>' +
-
-                '<ul class="row-16 list-0 list-custom list-marked list-marked-sm list-marked-secondary">' +
-                '<li>Stay in Camps with proper bedding</li>' +
-                '<li>Good quality of sleeping begs</li>' +
-                '<li>Good quality of tents</li>' +
-                '<li>3 times meals including Veg and Non-Veg</li>' +
-                '<li>Soloar electricity with power backup</li>' +
-                '<li>Hot & Cold water for bath.</li>' +
-                '<li>Neat and clean western toilet</li>' +
-                '</ul>'
-            $('#tabs-4-2').html(htmlText2);
-
-
-
-            // Camp activities tab data              
-            var htmlText3 =
-                '<ul class="row-16 list-0 list-custom list-marked list-marked-sm list-marked-secondary">' +
-                '<li><b>Day 1-</b> Arrival from any locaiton to Almora. Will do night stay here and spend quality time in kasar with messmirizing weather. <b>With tasty Dinner and Breakfast.</b> </li>' +
-                '<li><b>Day 2-</b> After having breakfast we will head towards the Liti including the Lunch. It is 3 hours drive from Kasar to Liti to reach camp site it is 30 minutes walk from Liti main station.</li>' +
-                '<li><b>Day 3-</b> Jungle walk and Lunch at camp site.</li>' +
-                '<li><b>Day 4-</b> Liti walk including picknic Lunch.</li>' +
-                '<li><b>Day 5-</b> Liti walk including packed Lunch.</li>' +
-                '<li><b>Day 6-</b> After completing the awesome journey we will get back to kasar devi and start jorney back to source</li>' +
-                '</ul>'
-
-            $('#tabs-4-3').html(htmlText3);
-
-
-            // More tab data              
-            var htmlText4 = '<br/><p><span style="color:red">Nearby Places to Visit:</p></span>' +
-                '<p>Ganga Aarti - Parmarth <span style="color:red">9 kms</span> | Bungee Jump Station <span style="color:red">8 kms</span></p>' +
-                '<p>Neelkanth Mandir <span style="color:red">15 kms</span> | Paintball Point <span style="color:red">1 km</span></p>' +
-                '<p>Jeep Safari - Rajaji <span style="color:red">35 kms</span></p>'
-
-
-            $('#tabs-4-4').html(htmlText4);
-
-
         });
     </script>
 
