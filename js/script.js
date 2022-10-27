@@ -631,15 +631,13 @@
                     break;
                 }
             }
-            key = "AIzaSyC-9-J2Tw2-qABY5p3qSGn05vXYXx-HuO4";
-            // alert(key);
 
-            $.getScript('//maps.google.com/maps/api/js?' + (key ? 'key=' + key + '&' : '') + 'sensor=false&libraries=geometry,places&v=quarterly', function() {
+            $.getScript('https://maps.google.com/maps/api/js?' + (key ? 'key=' + key + '&' : '') + 'sensor=false&libraries=geometry,places&v=quarterly', function() {
                 var head = document.getElementsByTagName('head')[0],
                     insertBefore = head.insertBefore;
 
                 head.insertBefore = function(newElement, referenceElement) {
-                    if (newElement.href && newElement.href.indexOf('//fonts.googleapis.com/css?family=Roboto') !== -1 || newElement.innerHTML.indexOf('gm-style') !== -1) {
+                    if (newElement.href && newElement.href.indexOf('https://fonts.googleapis.com/css?family=Roboto') !== -1 || newElement.innerHTML.indexOf('gm-style') !== -1) {
                         return;
                     }
                     insertBefore.call(head, newElement, referenceElement);
