@@ -490,7 +490,7 @@
                                         <li><a href="contact-us.html">Contact Us</a></li>
 
                                     </ul>
-                                    <div class="group-md group-middle justify-content-sm-start"><a class="button button-lg button-primary button-ujarak" href="#">Get in touch</a></div>
+                                    <div class="group-md group-middle justify-content-sm-start"><a class="button button-lg button-primary button-ujarak" href="contact-us.html">Get in touch</a></div>
                                 </div>
                             </div>
                         </div>
@@ -559,7 +559,7 @@
                     "<p style='margin:0'><span style='color:red'>Weather:</span> Sept-Nov: Pleasant | Dec-Jan: Cold | Feb-Mar: Pleasant | Apr-Jun: Hot during day, pleasant at night</p>" +
                     "<p style='margin:0'><span style='color:red'>Season:</span> Camp is open throughout the year; River Rafting is open from Mid-September to June</p>"
 
-                $('#tabs-4-1').html(htmlText);
+                // $('#tabs-4-1').html(htmlText);
 
                 // Camp facilities tab data              
                 var htmlText2 = '<br/><p>Aliquam malesuada bibendum arcu vitae elementum curabitur. A erat nam at lectus urna duis convallis convallis tellus. Sit amet consectetur adipiscing elit pellentesque.</p>' +
@@ -572,15 +572,15 @@
                     '<li>Large Conference Hall with Audio/Video facility</li>' +
                     '</ul>'
 
-                $('#tabs-4-2').html(htmlText2);
+                // $('#tabs-4-2').html(htmlText2);
 
 
                 // Camp activities tab data              
                 var htmlText3 = '<br/><p>Aliquam malesuada bibendum arcu vitae elementum curabitur. A erat nam at lectus urna duis convallis convallis tellus. Sit amet consectetur adipiscing elit pellentesque.</p>' +
 
                     '<ul class="row-16 list-0 list-custom list-marked list-marked-sm list-marked-secondary">' +
-                    '<li>Stay in C</li>' +
-                    '<li>Neat and clean </li>' +
+                    '<li>Romaing villages</li>' +
+                    '<li>Night stay on village </li>' +
                     '<li>Buffet meals </li>' +
                     '<li>Electricity </li>' +
                     '<li>Large Conference Hall </li>' +
@@ -589,14 +589,26 @@
                 $('#tabs-4-3').html(htmlText3);
 
 
-                // More tab data              
-                var htmlText4 = '<br/><p><span style="color:red">Nearby Places to Visit:</p></span>' +
-                    '<p>Ganga Aarti - Parmarth <span style="color:red">9 kms</span> | Bungee Jump Station <span style="color:red">8 kms</span></p>' +
-                    '<p>Neelkanth Mandir <span style="color:red">15 kms</span> | Paintball Point <span style="color:red">1 km</span></p>' +
-                    '<p>Jeep Safari - Rajaji <span style="color:red">35 kms</span></p>'
+                // Map Iframe
+                var mapIframe = '<div>' +
+                    '<iframe width="100%" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=79.89472389221193%2C30.029346321255183%2C79.96682167053224%2C30.081349364235265&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=14/30.0553/79.9307">View Larger Map</a></small></div>'
 
+
+
+                // More tab data              
+                var htmlText4 = '<h5> Things which are not included</h5>' +
+                    '<ul class="row-16 list-0 list-custom list-marked list-marked-sm list-marked-secondary">' +
+                    '<li>Personal Insurance</li>' +
+                    '<li>Medical Certificate</li>' +
+                    '<li>Personal toiletry Items and Personal Medicine kit</li>' +
+                    '<li>Mules and Porters for Personal Luggage</li>' +
+                    '<li>On first day En Route to base camp the Breakfast and Lunch are Not Included</li>' +
+                    '<li>Last Day En Route Lunch and Dinner are Not Included</li>' +
+                    '</ul>' +
+                    mapIframe
 
                 $('#tabs-4-4').html(htmlText4);
+
             } else if (queryString == "2") {
                 $("#side-image").attr({
                     "src": "images/dhakuri-tour-detail-image.webp"
@@ -668,7 +680,6 @@
 
 
                 // Map Iframe
-
                 var mapIframe = '<div>' +
                     '<iframe width="100%" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=79.89472389221193%2C30.029346321255183%2C79.96682167053224%2C30.081349364235265&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=14/30.0553/79.9307">View Larger Map</a></small></div>'
 
