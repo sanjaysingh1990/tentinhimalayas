@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Page with Footer</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch("footer.html") // Fetch the footer.html file
+                .then(response => response.text()) // Convert response to text
+                .then(data => {
+                    document.getElementById("footer-container").innerHTML = data; // Insert into div
+                })
+                .catch(error => console.error("Error loading footer:", error));
+        });
+    </script>
+</head>
+
+<body>
+
+    <h1>Welcome to My Website</h1>
+    <p>This is the main content of the page.</p>
+
+    <!-- Footer will be dynamically inserted here -->
+    <div id="footer-container"></div>
+
+</body>
+
+</html>
