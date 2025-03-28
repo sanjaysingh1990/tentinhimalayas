@@ -1,30 +1,121 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- Keep existing head/header/footer code -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Static Page with Footer</title>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch("footer.html") // Fetch the footer.html file
-                .then(response => response.text()) // Convert response to text
-                .then(data => {
-                    document.getElementById("footer-container").innerHTML = data; // Insert into div
-                })
-                .catch(error => console.error("Error loading footer:", error));
-        });
-    </script>
-</head>
+<div class="terms-hero">
+    <div class="container text-center">
+        <h1 class="section-header mb-3 text-white">Terms & Conditions</h1>
+    </div>
+</div>
 
-<body>
+<main class="container">
+    <!-- Booking Section -->
+    <div class="terms-section">
+        <h4>📌 Key Agreements</h4>
+        <div class="highlight-box">
+            <p>By booking, you agree to these terms with TentInHimalayas Tours Pvt Ltd (Mumbai-registered)</p>
+        </div>
+    </div>
 
-    <h1>Welcome to My Website</h1>
-    <p>This is the main content of the page.</p>
+    <!-- Payment & Cancellation -->
+    <div class="terms-section">
+        <h4>💰 Financial Terms</h4>
+        <div class="row">
+            <div class="col-md-6">
+                <h5>Payment Schedule</h5>
+                <ul>
+                    <li>📅 25% deposit to confirm</li>
+                    <li>📅 75% balance 120 days pre-tour</li>
+                    <li>⏳ Full payment if booking
+                        <60 days</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h5>Cancellation Fees</h5>
+                <table class="cancellation-table">
+                    <tr>
+                        <td>365-181 days</td>
+                        <td>10%</td>
+                    </tr>
+                    <tr>
+                        <td>180-121 days</td>
+                        <td>25%</td>
+                    </tr>
+                    <tr>
+                        <td>120-91 days</td>
+                        <td>50%</td>
+                    </tr>
+                    <tr>
+                        <td>90-0 days</td>
+                        <td>100%</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
 
-    <!-- Footer will be dynamically inserted here -->
-    <div id="footer-container"></div>
+    <!-- Requirements -->
+    <div class="terms-section">
+        <h4>📄 Essential Requirements</h4>
+        <div class="alert alert-warning">
+            <ul>
+                <li>✅ Valid Indian visa & passport</li>
+                <li>🏥 Disclose medical conditions</li>
+                <li>👶 Age limits: Ladakh (7+), Kumaon/Sikkim (5+), Leti 360 (12+)</li>
+            </ul>
+        </div>
+    </div>
 
-</body>
+    <!-- Policies -->
+    <div class="terms-section">
+        <h4>⚖️ Important Policies</h4>
+        <div class="row">
+            <div class="col-md-4 policy-card">
+                <h5>📝 Changes</h5>
+                <p>Supplier fees may apply. Flight issues = guest expense</p>
+            </div>
+            <div class="col-md-4 policy-card">
+                <h5>⚠️ Force Majeure</h5>
+                <p>No refunds for natural disasters, wars, or unrest</p>
+            </div>
+            <div class="col-md-4 policy-card">
+                <h5>🚫 Behavior</h5>
+                <p>Property damage = full payment. Misconduct = immediate removal</p>
+            </div>
+        </div>
+    </div>
 
-</html>
+    <!-- Legal -->
+    <div class="terms-section">
+        <h4>⚖️ Legal Framework</h4>
+        <ul>
+            <li>📜 Indian law governs all agreements</li>
+            <li>📧 Complaints must be submitted within 21 days post-tour</li>
+            <li>📞 Issues during tour must be reported immediately</li>
+        </ul>
+    </div>
+</main>
+
+<style>
+    .policy-card {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 10px 0;
+    }
+    
+    .highlight-box {
+        background: #fff4f4;
+        border-left: 4px solid #e74c3c;
+        padding: 15px;
+        margin: 15px 0;
+    }
+    
+    .cancellation-table {
+        width: 100%;
+        border: 1px solid #ddd;
+    }
+    
+    .cancellation-table td {
+        padding: 8px 12px;
+        border-bottom: 1px solid #eee;
+    }
+</style>
