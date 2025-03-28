@@ -247,17 +247,7 @@
     <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch("footer.html") // Fetch the footer.html file
-                .then(response => response.text()) // Convert response to text
-                .then(data => {
-                    document.getElementById("common-footer").innerHTML = data; // Insert into div
-                })
-                .catch(error => console.error("Error loading footer:", error));
-        });
-    </script>
+    <script src="js/fooder-loader.js"></script>
 
 
 
