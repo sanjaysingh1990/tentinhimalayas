@@ -1,121 +1,199 @@
-<!-- Keep existing head/header/footer code -->
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en">
 
-<div class="terms-hero">
-    <div class="container text-center">
-        <h1 class="section-header mb-3 text-white">Terms & Conditions</h1>
-    </div>
-</div>
+<head>
+    <!-- Existing meta tags and stylesheets -->
+    <style>
+        /* Custom Table Styles */
+        
+        .terms-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 1px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .terms-table thead {
+            background-color: #f8f9fa;
+            border-bottom: 2px solid #dee2e6;
+        }
+        
+        .terms-table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .terms-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .terms-table tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .highlight-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffd700;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        
+        .section-title {
+            color: #2a5d84;
+            border-bottom: 2px solid #2a5d84;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
 
-<main class="container">
-    <!-- Booking Section -->
-    <div class="terms-section">
-        <h4>📌 Key Agreements</h4>
-        <div class="highlight-box">
-            <p>By booking, you agree to these terms with TentInHimalayas Tours Pvt Ltd (Mumbai-registered)</p>
-        </div>
-    </div>
+<body>
+    <!-- Header and breadcrumbs unchanged -->
 
-    <!-- Payment & Cancellation -->
-    <div class="terms-section">
-        <h4>💰 Financial Terms</h4>
-        <div class="row">
-            <div class="col-md-6">
-                <h5>Payment Schedule</h5>
-                <ul>
-                    <li>📅 25% deposit to confirm</li>
-                    <li>📅 75% balance 120 days pre-tour</li>
-                    <li>⏳ Full payment if booking
-                        <60 days</li>
+    <section class="section section-sm section-first bg-default text-md-left">
+        <div class="container">
+            <h2 class="text-center section-title">Terms and Conditions</h2>
+
+            <!-- 1. Booking Process -->
+            <div class="mb-5">
+                <h4 class="section-title">1. Booking Process</h4>
+                <div class="table-responsive">
+                    <table class="terms-table">
+                        <thead>
+                            <tr>
+                                <th>Step</th>
+                                <th>Details</th>
+                                <th>Deadline</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Initial Deposit</td>
+                                <td>25% of total cost</td>
+                                <td>At booking confirmation</td>
+                            </tr>
+                            <tr>
+                                <td>Final Payment</td>
+                                <td>75% of total cost</td>
+                                <td>120 days before travel</td>
+                            </tr>
+                            <tr>
+                                <td>Last-minute Bookings</td>
+                                <td colspan="2">Full payment required immediately</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 2. Cancellation Policy -->
+            <div class="mb-5">
+                <h4 class="section-title">2. Cancellation Policy</h4>
+                <div class="table-responsive">
+                    <table class="terms-table">
+                        <thead>
+                            <tr>
+                                <th>Period Before Arrival</th>
+                                <th>Cancellation Fee</th>
+                                <th>Refund Timeline</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>365-181 days</td>
+                                <td>10%</td>
+                                <td rowspan="4">15 working days</td>
+                            </tr>
+                            <tr>
+                                <td>180-121 days</td>
+                                <td>25%</td>
+                            </tr>
+                            <tr>
+                                <td>120-91 days</td>
+                                <td>50%</td>
+                            </tr>
+                            <tr>
+                                <td>90-0 days</td>
+                                <td>100%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 3. Child Policy -->
+            <div class="mb-5">
+                <h4 class="section-title">3. Child Policy</h4>
+                <div class="table-responsive">
+                    <table class="terms-table">
+                        <thead>
+                            <tr>
+                                <th>Destination</th>
+                                <th>Minimum Age</th>
+                                <th>Special Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Ladakh</td>
+                                <td>7 years</td>
+                                <td>High altitude consideration</td>
+                            </tr>
+                            <tr>
+                                <td>Kumaon (excl. Leti 360)</td>
+                                <td>5 years</td>
+                                <td>Family-friendly activities</td>
+                            </tr>
+                            <tr>
+                                <td>Leti 360</td>
+                                <td>12 years</td>
+                                <td>Adventure activities restriction</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 4. Important Notes -->
+            <div class="highlight-box">
+                <h5>Key Considerations</h5>
+                <ul class="list-unstyled">
+                    <li>✓ Medical disclosures mandatory for high-altitude tours</li>
+                    <li>✓ Travel insurance strongly recommended</li>
+                    <li>✗ No refunds for visa/documentation issues</li>
+                    <li>✓ Free itinerary consultation available</li>
                 </ul>
             </div>
-            <div class="col-md-6">
-                <h5>Cancellation Fees</h5>
-                <table class="cancellation-table">
-                    <tr>
-                        <td>365-181 days</td>
-                        <td>10%</td>
-                    </tr>
-                    <tr>
-                        <td>180-121 days</td>
-                        <td>25%</td>
-                    </tr>
-                    <tr>
-                        <td>120-91 days</td>
-                        <td>50%</td>
-                    </tr>
-                    <tr>
-                        <td>90-0 days</td>
-                        <td>100%</td>
-                    </tr>
-                </table>
+
+            <!-- 5. Legal Framework -->
+            <div class="mt-5">
+                <h4 class="section-title">4. Legal Framework</h4>
+                <div class="table-responsive">
+                    <table class="terms-table">
+                        <thead>
+                            <tr>
+                                <th>Jurisdiction</th>
+                                <th>Dispute Resolution</th>
+                                <th>Governing Law</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mumbai, India</td>
+                                <td>Indian courts exclusive</td>
+                                <td>Indian Contract Act</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Requirements -->
-    <div class="terms-section">
-        <h4>📄 Essential Requirements</h4>
-        <div class="alert alert-warning">
-            <ul>
-                <li>✅ Valid Indian visa & passport</li>
-                <li>🏥 Disclose medical conditions</li>
-                <li>👶 Age limits: Ladakh (7+), Kumaon/Sikkim (5+), Leti 360 (12+)</li>
-            </ul>
-        </div>
-    </div>
+    <!-- Footer remains unchanged -->
+</body>
 
-    <!-- Policies -->
-    <div class="terms-section">
-        <h4>⚖️ Important Policies</h4>
-        <div class="row">
-            <div class="col-md-4 policy-card">
-                <h5>📝 Changes</h5>
-                <p>Supplier fees may apply. Flight issues = guest expense</p>
-            </div>
-            <div class="col-md-4 policy-card">
-                <h5>⚠️ Force Majeure</h5>
-                <p>No refunds for natural disasters, wars, or unrest</p>
-            </div>
-            <div class="col-md-4 policy-card">
-                <h5>🚫 Behavior</h5>
-                <p>Property damage = full payment. Misconduct = immediate removal</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Legal -->
-    <div class="terms-section">
-        <h4>⚖️ Legal Framework</h4>
-        <ul>
-            <li>📜 Indian law governs all agreements</li>
-            <li>📧 Complaints must be submitted within 21 days post-tour</li>
-            <li>📞 Issues during tour must be reported immediately</li>
-        </ul>
-    </div>
-</main>
-
-<style>
-    .policy-card {
-        background: #f8f9fa;
-        padding: 20px;
-        border-radius: 8px;
-        margin: 10px 0;
-    }
-    
-    .highlight-box {
-        background: #fff4f4;
-        border-left: 4px solid #e74c3c;
-        padding: 15px;
-        margin: 15px 0;
-    }
-    
-    .cancellation-table {
-        width: 100%;
-        border: 1px solid #ddd;
-    }
-    
-    .cancellation-table td {
-        padding: 8px 12px;
-        border-bottom: 1px solid #eee;
-    }
-</style>
+</html>
