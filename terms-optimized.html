@@ -510,8 +510,54 @@
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/fooder-loader.js"></script>
-
+    
     <script>
+        // Accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle accordion header clicks
+            document.querySelectorAll('.accordion-header').forEach(function(header) {
+                header.addEventListener('click', function() {
+                    // Toggle active class on header
+                    this.classList.toggle('active');
+                    
+                    // Get the next sibling (accordion-content)
+                    var content = this.nextElementSibling;
+                    
+                    // Toggle active class on content
+                    content.classList.toggle('active');
+                });
+            });
+            
+            // Handle table of contents link clicks
+            document.querySelectorAll('.toc a').forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Get target section ID
+                    var targetId = this.getAttribute('href').substring(1);
+                    
+                    // Find the accordion header with matching ID
+                    var targetHeader = document.getElementById(targetId);
+                    
+                    if (targetHeader) {
+                        // Add active class to header if not already active
+                        if (!targetHeader.classList.contains('active')) {
+                            targetHeader.classList.add('active');
+                            
+                            // Get the next sibling (accordion-content)
+                            var content = targetHeader.nextElementSibling;
+                            
+                            // Add active class to content
+                            content.classList.add('active');
+                        }
+                        
+                        // Scroll to the section
+                        targetHeader.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+
         // Fade in elements when they come into view
         function fadeInElements() {
             document.querySelectorAll('.fade-in-element').forEach(function(element) {
@@ -519,7 +565,7 @@
                 var elementBottom = elementTop + element.offsetHeight;
                 var viewportTop = window.pageYOffset;
                 var viewportBottom = viewportTop + window.innerHeight;
-
+                
                 if (elementBottom > viewportTop && elementTop < viewportBottom) {
                     element.classList.add('visible');
                 }
