@@ -431,42 +431,243 @@
     <div class="snackbars" id="form-output-global"></div>
     <!-- Javascript-->
     <!-- Use production version of Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/fooder-loader.js"></script>
-    <!-- Load main module after Firebase is loaded -->
+    <!-- Load blog test data directly -->
     <script>
-        console.log('Blog detail HTML script section started');
-        // Wait for Firebase to load, then load our module
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('DOM content loaded in blog-detail.html');
-            // Check if we're on the blog detail page
-            if (document.getElementById('blog-detail-container')) {
-                console.log('Found blog-detail-container, attempting to load main module');
-                // Dynamically import the main module
-                import ('./src/main.js')
-                .then(() => {
-                        console.log('Blog detail module loaded successfully');
-                    })
-                    .catch(error => {
-                        console.error('Error loading blog detail module:', error);
-                        // Fallback to test data if module fails to load
-                        import ('./src/test/BlogDetailTest.js')
-                        .then(module => {
-                                const BlogDetailTest = module.default;
-                                const blogDetail = new BlogDetailTest('blog-detail-container');
-                                blogDetail.init();
-                            })
-                            .catch(testError => {
-                                console.error('Error loading test module:', testError);
-                                document.getElementById('blog-detail-container').innerHTML =
-                                    '<div class="text-center"><p class="error-message">Failed to load blog content. Please try again later.</p></div>';
-                            });
-                    });
-            }
+            // Load test blog detail data directly without Firebase
+            loadBlogDetailTestData();
         });
+
+        async function loadBlogDetailTestData() {
+            const blogContainer = document.getElementById('blog-detail-container');
+            if (!blogContainer) return;
+
+            try {
+                // Show loading state
+                blogContainer.innerHTML = '<div class="text-center"><p>Loading blog post...</p></div>';
+
+                // Get blog ID from URL
+                const urlParams = new URLSearchParams(window.location.search);
+                const blogId = urlParams.get('id');
+
+                if (!blogId) {
+                    blogContainer.innerHTML = '<div class="text-center"><p class="error-message">Blog post not found.</p></div>';
+                    return;
+                }
+
+                // Sample blog data
+                const sampleBlogs = [
+                    {
+                        id: '1',
+                        title: 'Exploring the Hidden Valleys of Kumaon',
+                        description: `<p>Discover the breathtaking beauty of Kumaon's hidden valleys, where ancient villages nestle between towering peaks and pristine forests. Our recent expedition took us through trails less traveled, revealing stunning vistas and cultural gems that few tourists ever experience.</p>
+                        <p>The journey began at dawn from our base camp near Almora, where we trekked through rhododendron forests that were just beginning to bloom. The air was crisp and filled with the scent of pine and wildflowers. As we ascended, the landscape transformed from dense woodland to alpine meadows dotted with grazing sheep.</p>
+                        <h2>Ancient Villages and Local Culture</h2>
+                        <p>Our first stop was the remote village of Dhaulchina, where we were welcomed by the warm smiles of locals who still practice traditional farming methods. The village elder, Pandit Ji, shared stories of his ancestors who settled here centuries ago, drawn by the fertile land and protective embrace of the mountains.</p>
+                        <p>We spent the night in a traditional Kumaoni house, experiencing the unique architecture and hospitality of the region. The evening was filled with folk songs and local cuisine that featured organic produce grown in the village's terraced fields.</p>`,
+                        tags: ['Travel', 'Adventure', 'Culture'],
+                        images: [
+                            'images/slider-images/slider-1.webp',
+                            'images/slider-images/slider-2.webp',
+                            'images/slider-images/slider-3.webp',
+                            'images/slider-images/slider-4.webp'
+                        ],
+                        date: new Date()
+                    },
+                    {
+                        id: '2',
+                        title: 'Essential Gear for Himalayan Camping',
+                        description: `<p>Planning a camping trip in the Himalayas requires careful preparation and the right gear. The unpredictable weather and challenging terrain demand equipment that can withstand extreme conditions while keeping you comfortable and safe.</p>
+                        <h2>Shelter and Sleep System</h2>
+                        <p>Your tent is your home away from home, so invest in a high-quality, four-season tent designed for mountain conditions. Look for features like reinforced poles, waterproof fabric, and vestibules for storing gear. A good sleeping bag rated for temperatures 10-15 degrees lower than expected conditions is essential, along with a sleeping pad for insulation and comfort.</p>
+                        <h2>Clothing and Layering</h2>
+                        <p>The key to staying comfortable in the mountains is proper layering. Start with moisture-wicking base layers, add insulating mid-layers like fleece or down, and finish with a waterproof, breathable shell. Don't forget warm accessories like hats, gloves, and neck gaiters.</p>
+                        <p>Footwear is critical - invest in sturdy, waterproof hiking boots with good ankle support. Break them in before your trip to prevent blisters.</p>
+                        <h2>Cooking and Hydration</h2>
+                        <p>A lightweight camping stove that performs well in cold weather is essential. Carry enough fuel for your entire trip, plus extra for unexpected delays. For water, bring purification tablets or a reliable filter, and always carry more than you think you'll need.</p>`,
+                        tags: ['Camping', 'Gear', 'Himalayas'],
+                        images: [
+                            'images/slider-images/slider-5.webp',
+                            'images/categories/category_4.webp',
+                            'images/categories/category_5.webp'
+                        ],
+                        date: new Date(Date.now() - 86400000) // Yesterday
+                    },
+                    {
+                        id: '3',
+                        title: 'Wildlife Encounters in the Himalayas',
+                        description: `<p>The Himalayas are home to an incredible diversity of wildlife, from elusive snow leopards to colorful bird species found nowhere else on Earth. Responsible wildlife viewing can be one of the most rewarding aspects of a mountain expedition.</p>
+                        <h2>Bird Watching Paradise</h2>
+                        <p>Bird enthusiasts will find the Himalayas a true paradise, with over 500 species recorded in the region. Early morning hours offer the best opportunities for sightings, as birds are most active during cooler temperatures. Look for species like the Himalayan monal, with its iridescent plumage, and the cheerful sounding laughing thrush.</p>
+                        <p>Bring binoculars and a field guide specific to the region. Patience and quiet movement are key to successful bird watching.</p>
+                        <h2>Mammals of the High Mountains</h2>
+                        <p>While larger mammals are more challenging to spot, keen observers may catch glimpses of blue sheep (bharal) on rocky slopes, or perhaps a Himalayan tahr if you're lucky. These sure-footed animals are perfectly adapted to the steep terrain.</p>
+                        <p>For the extremely fortunate, there's always the possibility of spotting a snow leopard, though these elusive cats are masters of camouflage and require both skill and luck to observe.</p>
+                        <h2>Responsible Wildlife Viewing</h2>
+                        <p>Always maintain a safe distance from wildlife and never attempt to feed or approach animals. Use telephoto lenses for photography rather than getting too close. Stay on designated trails to minimize habitat disturbance.</p>`,
+                        tags: ['Wildlife', 'Photography', 'Nature'],
+                        images: [
+                            'images/gallery/small/image-gallery-small-1.webp',
+                            'images/gallery/small/image-gallery-small-2.webp',
+                            'images/gallery/small/image-gallery-small-3.webp'
+                        ],
+                        date: new Date(Date.now() - 172800000) // Two days ago
+                    }
+                ];
+
+                // Find the blog with the matching ID
+                const blog = sampleBlogs.find(b => b.id === blogId);
+
+                if (!blog) {
+                    blogContainer.innerHTML = '<div class="text-center"><p class="error-message">Blog post not found.</p></div>';
+                    return;
+                }
+
+                // Display blog
+                displayBlogDetail(blog, blogContainer);
+            } catch (error) {
+                console.error('Error loading blog data:', error);
+                blogContainer.innerHTML = '<div class="text-center"><p class="error-message">Failed to load blog content. Please try again later.</p></div>';
+            }
+        }
+
+        function displayBlogDetail(blog, container) {
+            // Format date
+            const formattedDate = blog.date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+
+            const html = `
+                <div class="blog-detail-header">
+                    <h1 class="blog-detail-title">${blog.title}</h1>
+                    <div class="blog-detail-meta">
+                        Published on ${formattedDate}
+                    </div>
+                </div>
+                
+                <div class="blog-gallery-container">
+                    ${renderGallery(blog.images)}
+                </div>
+                
+                <div class="blog-detail-content">
+                    ${blog.description}
+                </div>
+                
+                <div class="blog-detail-tags">
+                    <h4>Tags:</h4>
+                    <div>
+                        ${blog.tags.map(tag => `<span class="blog-tag">${tag}</span>`).join('')}
+                    </div>
+                </div>
+                
+                <div class="social-share">
+                    <h4>Share this post:</h4>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}" target="_blank" class="social-icon facebook">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(blog.title)}" target="_blank" class="social-icon twitter">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="https://wa.me/?text=${encodeURIComponent(window.location.href)}" target="_blank" class="social-icon whatsapp">
+                            <i class="fa fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            container.innerHTML = html;
+
+            // Initialize gallery functionality
+            initGallery();
+        }
+
+        function renderGallery(images) {
+            if (!images || images.length === 0) {
+                return '<p>No images available</p>';
+            }
+
+            // Main image display
+            let galleryHTML = `
+                <div class="blog-gallery-main">
+                    <img src="${images[0]}" alt="Blog image" id="main-gallery-image" loading="lazy">
+                </div>
+                <div class="blog-gallery-thumbnails">
+            `;
+
+            // Thumbnails
+            images.forEach((image, index) => {
+                const activeClass = index === 0 ? 'active' : '';
+                galleryHTML += `
+                    <img src="${image}" alt="Blog image ${index + 1}" class="gallery-thumbnail ${activeClass}" data-src="${image}" loading="lazy">
+                `;
+            });
+
+            galleryHTML += `
+                </div>
+                <div class="blog-gallery-navigation">
+                    <button class="gallery-nav-btn prev-btn" id="prev-btn">‹</button>
+                    <button class="gallery-nav-btn next-btn" id="next-btn">›</button>
+                </div>
+            `;
+
+            return galleryHTML;
+        }
+
+        function initGallery() {
+            // Get all thumbnails
+            const thumbnails = document.querySelectorAll('.gallery-thumbnail');
+            const mainImage = document.getElementById('main-gallery-image');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+
+            if (!mainImage || !prevBtn || !nextBtn) return;
+
+            // Current image index
+            let currentIndex = 0;
+
+            // Change main image when thumbnail is clicked
+            thumbnails.forEach((thumbnail, index) => {
+                thumbnail.addEventListener('click', () => {
+                    // Update main image
+                    mainImage.src = thumbnail.dataset.src;
+
+                    // Update active class
+                    document.querySelector('.gallery-thumbnail.active').classList.remove('active');
+                    thumbnail.classList.add('active');
+
+                    // Update current index
+                    currentIndex = index;
+                });
+            });
+
+            // Previous button
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
+                const newSrc = thumbnails[currentIndex].dataset.src;
+                mainImage.src = newSrc;
+
+                // Update active class
+                document.querySelector('.gallery-thumbnail.active').classList.remove('active');
+                thumbnails[currentIndex].classList.add('active');
+            });
+
+            // Next button
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % thumbnails.length;
+                const newSrc = thumbnails[currentIndex].dataset.src;
+                mainImage.src = newSrc;
+
+                // Update active class
+                document.querySelector('.gallery-thumbnail.active').classList.remove('active');
+                thumbnails[currentIndex].classList.add('active');
+            });
+        }
     </script>
 </body>
 
