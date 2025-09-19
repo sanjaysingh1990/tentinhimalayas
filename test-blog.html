@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en">
+
+<head>
+    <title>Test Blog Page</title>
+    <meta name="description" content="Test page for blog functionality">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Montserrat:400,500,600,700%7CPoppins:400%7CTeko:300,400">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Modern Blog Styles */
+        
+        .blog-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .blog-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        /* Blog Grid */
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        /* Blog Card */
+        
+        .blog-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .blog-card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .blog-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .blog-card:hover .blog-card-image img {
+            transform: scale(1.05);
+        }
+        
+        .blog-card-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .blog-card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .blog-card-excerpt {
+            color: #666;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        
+        .blog-card-tags {
+            margin-bottom: 15px;
+        }
+        
+        .blog-card-link {
+            color: #01b3a7;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+        
+        .blog-card-link:hover {
+            color: #01988d;
+            text-decoration: underline;
+        }
+        /* Blog Tags */
+        
+        .blog-tag {
+            display: inline-block;
+            background: #e9f7f6;
+            color: #01b3a7;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        /* Pagination */
+        
+        .pagination {
+            margin-top: 40px;
+        }
+        
+        .page-link {
+            color: #01b3a7;
+        }
+        
+        .page-item.active .page-link {
+            background-color: #01b3a7;
+            border-color: #01b3a7;
+        }
+        
+        .error-message {
+            color: #e74c3c;
+            font-weight: 500;
+        }
+        /* Responsive */
+        
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            .blog-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <section class="section section-sm section-first bg-default text-md-left">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="blog-header">
+                            <h1>Test Blog Page</h1>
+                            <p>This page tests the new blog functionality</p>
+                        </div>
+
+                        <!-- Blog Posts Container -->
+                        <div id="blog-posts-container">
+                            <!-- Blog posts will be loaded here dynamically -->
+                            <div class="text-center">
+                                <p>Loading blog posts...</p>
+                            </div>
+                        </div>
+
+                        <!-- Pagination -->
+                        <nav aria-label="Blog pagination" class="pagination">
+                            <ul class="pagination justify-content-center" id="pagination-controls">
+                                <!-- Pagination will be generated here -->
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Javascript-->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase.js"></script>
+    <script type="module">
+        // Test the blog functionality import BlogListTest from './src/test/BlogListTest.js'; document.addEventListener('DOMContentLoaded', function() { if (document.getElementById('blog-posts-container')) { const blogList = new BlogListTest('blog-posts-container');
+        blogList.init(); } });
+    </script>
+</body>
+
+</html>

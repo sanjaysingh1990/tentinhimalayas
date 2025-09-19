@@ -93,57 +93,144 @@
             opacity: 0;
             transform: translateY(-30px);
         }
-        /* Blog styles */
+        /* Modern Blog Styles */
         
-        .blog-post {
+        .blog-header {
             margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid #eee;
+            text-align: center;
         }
         
-        .blog-post:last-child {
-            border-bottom: none;
+        .blog-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #333;
         }
         
-        .blog-thumbnail {
+        .blog-header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        /* Blog Grid */
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        /* Blog Card */
+        
+        .blog-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .blog-card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .blog-card-image img {
             width: 100%;
-            height: 250px;
+            height: 100%;
             object-fit: cover;
-            border-radius: 5px;
-            margin-bottom: 20px;
+            transition: transform 0.3s ease;
         }
         
-        .blog-title {
-            font-size: 24px;
+        .blog-card:hover .blog-card-image img {
+            transform: scale(1.05);
+        }
+        
+        .blog-card-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .blog-card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
             margin-bottom: 10px;
+            color: #333;
         }
         
-        .blog-meta {
-            color: #6c757d;
-            font-size: 14px;
+        .blog-card-excerpt {
+            color: #666;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        
+        .blog-card-tags {
             margin-bottom: 15px;
         }
         
-        .blog-excerpt {
-            margin-bottom: 20px;
-        }
-        
-        .read-more {
+        .blog-card-link {
             color: #01b3a7;
             font-weight: 600;
             text-decoration: none;
+            display: inline-block;
+            transition: color 0.3s ease;
         }
         
-        .read-more:hover {
+        .blog-card-link:hover {
+            color: #01988d;
             text-decoration: underline;
         }
+        /* Blog Tags */
+        
+        .blog-tag {
+            display: inline-block;
+            background: #e9f7f6;
+            color: #01b3a7;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        /* Pagination */
         
         .pagination {
             margin-top: 40px;
         }
         
-        .blog-header {
-            margin-bottom: 40px;
+        .page-link {
+            color: #01b3a7;
+        }
+        
+        .page-item.active .page-link {
+            background-color: #01b3a7;
+            border-color: #01b3a7;
+        }
+        
+        .error-message {
+            color: #e74c3c;
+            font-weight: 500;
+        }
+        /* Responsive */
+        
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            .blog-header h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 
@@ -270,139 +357,123 @@
     <!-- Global Mailform Output-->
     <div class="snackbars" id="form-output-global"></div>
     <!-- Javascript-->
-    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase.js"></script>
+    <!-- Use production version of Firebase -->
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/fooder-loader.js"></script>
-
+    <!-- Load blog test data directly -->
     <script>
-        // Initialize Firebase
-        const firebaseConfig = {
-            apiKey: "AIzaSyCr_tQKCPR0i3IVkxMx40H8HmHd93GvrYc",
-            authDomain: "inapp-96885741.firebaseapp.com",
-            databaseURL: "https://inapp-96885741.firebaseio.com",
-            projectId: "inapp-96885741",
-            storageBucket: "inapp-96885741.appspot.com",
-            messagingSenderId: "1031749484359",
-            appId: "1:1031749484359:web:4416e21fd80f2a7d97d662"
-        };
-
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-
-        // Blog functionality
         document.addEventListener('DOMContentLoaded', function() {
+            // Load test blog data directly without Firebase
+            loadBlogTestData();
+        });
+
+        async function loadBlogTestData() {
             const blogContainer = document.getElementById('blog-posts-container');
+            if (!blogContainer) return;
+
+            try {
+                // Show loading state
+                blogContainer.innerHTML = '<div class="text-center"><p>Loading blog posts...</p></div>';
+
+                // Simulate loading delay
+                await new Promise(resolve => setTimeout(resolve, 800));
+
+                // Sample blog data
+                const sampleBlogs = [
+                    {
+                        id: '1',
+                        title: 'Exploring the Hidden Valleys of Kumaon',
+                        excerpt: 'Discover the breathtaking beauty of Kumaon\'s hidden valleys, where ancient villages nestle between towering peaks and pristine forests.',
+                        tags: ['Travel', 'Adventure', 'Culture'],
+                        images: ['images/slider-images/slider-1.webp']
+                    },
+                    {
+                        id: '2',
+                        title: 'Essential Gear for Himalayan Camping',
+                        excerpt: 'Planning a camping trip in the Himalayas requires careful preparation and the right gear. Here\'s our essential checklist for mountain adventures.',
+                        tags: ['Camping', 'Gear', 'Himalayas'],
+                        images: ['images/slider-images/slider-5.webp']
+                    },
+                    {
+                        id: '3',
+                        title: 'Wildlife Encounters in the Himalayas',
+                        excerpt: 'The Himalayas are home to incredible wildlife. Learn how to responsibly observe and photograph these magnificent creatures in their natural habitat.',
+                        tags: ['Wildlife', 'Photography', 'Nature'],
+                        images: ['images/gallery/small/image-gallery-small-1.webp']
+                    }
+                ];
+
+                // Display blogs
+                displayBlogs(sampleBlogs, blogContainer);
+
+                // Create pagination
+                createPagination(sampleBlogs.length, 3, 1);
+            } catch (error) {
+                console.error('Error loading blog data:', error);
+                blogContainer.innerHTML = '<div class="text-center"><p class="error-message">Failed to load blog content. Please try again later.</p></div>';
+            }
+        }
+
+        function displayBlogs(blogs, container) {
+            if (blogs.length === 0) {
+                container.innerHTML = '<p class="text-center">No blog posts available at the moment. Please check back later!</p>';
+                return;
+            }
+
+            let html = '<div class="blog-grid">';
+            blogs.forEach(blog => {
+                html += `
+                <div class="blog-card scale-element">
+                    <div class="blog-card-image">
+                        <img src="${blog.images[0]}" alt="${blog.title}" loading="lazy">
+                    </div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">${blog.title}</h3>
+                        <p class="blog-card-excerpt">${blog.excerpt}</p>
+                        <div class="blog-card-tags">
+                            ${blog.tags.map(tag => `<span class="blog-tag">${tag}</span>`).join('')}
+                        </div>
+                        <a href="blog-detail.html?id=${blog.id}" class="blog-card-link">Read More →</a>
+                    </div>
+                </div>
+                `;
+            });
+            html += '</div>';
+
+            container.innerHTML = html;
+        }
+
+        function createPagination(totalItems, itemsPerPage, currentPage) {
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
             const paginationContainer = document.getElementById('pagination-controls');
 
-            // Pagination settings
-            const postsPerPage = 3;
-            let currentPage = 1;
-
-            // Function to format date
-            function formatDate(date) {
-                return date.toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                });
+            if (totalPages <= 1) {
+                paginationContainer.innerHTML = '';
+                return;
             }
 
-            // Function to display blog posts
-            function displayBlogPosts(posts, page) {
-                const startIndex = (page - 1) * postsPerPage;
-                const endIndex = startIndex + postsPerPage;
-                const postsToShow = posts.slice(startIndex, endIndex);
+            let html = '';
 
-                let html = '';
-
-                if (postsToShow.length === 0) {
-                    html = '<p class="text-center">No blog posts available at the moment. Please check back later!</p>';
-                } else {
-                    postsToShow.forEach(post => {
-                        html += `
-                        <article class="blog-post">
-                            <img src="${post.imageUrl}" alt="${post.title}" class="blog-thumbnail" loading="lazy">
-                            <h3 class="blog-title">${post.title}</h3>
-                            <div class="blog-meta">
-                                By ${post.author} on ${formatDate(post.createdAt)}
-                            </div>
-                            <p class="blog-excerpt">${post.description}</p>
-                            <a href="blog-detail.html?id=${post.id}" class="read-more">Read More →</a>
-                        </article>
-                        `;
-                    });
-                }
-
-                blogContainer.innerHTML = html;
+            // Previous button
+            if (currentPage > 1) {
+                html += `<li class="page-item"><a class="page-link" href="#" data-page="${currentPage - 1}">Previous</a></li>`;
             }
 
-            // Function to create pagination controls
-            function createPaginationControls(totalPosts, currentPage) {
-                const totalPages = Math.ceil(totalPosts / postsPerPage);
-
-                let html = '';
-
-                // Previous button
-                if (currentPage > 1) {
-                    html += `<li class="page-item"><a class="page-link" href="#" data-page="${currentPage - 1}">Previous</a></li>`;
-                }
-
-                // Page numbers
-                for (let i = 1; i <= totalPages; i++) {
-                    const activeClass = (i === currentPage) ? 'active' : '';
-                    html += `<li class="page-item ${activeClass}"><a class="page-link" href="#" data-page="${i}">${i}</a></li>`;
-                }
-
-                // Next button
-                if (currentPage < totalPages) {
-                    html += `<li class="page-item"><a class="page-link" href="#" data-page="${currentPage + 1}">Next</a></li>`;
-                }
-
-                paginationContainer.innerHTML = html;
-
-                // Add event listeners to pagination links
-                document.querySelectorAll('#pagination-controls .page-link').forEach(link => {
-                    link.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const page = parseInt(this.getAttribute('data-page'));
-                        currentPage = page;
-                        displayBlogPosts(sampleBlogs, currentPage);
-                        createPaginationControls(sampleBlogs.length, currentPage);
-
-                        // Scroll to top of blog section
-                        document.querySelector('.section-first').scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    });
-                });
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                const activeClass = (i === currentPage) ? 'active' : '';
+                html += `<li class="page-item ${activeClass}"><a class="page-link" href="#" data-page="${i}">${i}</a></li>`;
             }
 
-            // Fetch blogs from Firebase
-            const db = firebase.firestore();
-            db.collection("blogs")
-                .orderBy("createdAt", "desc")
-                .get()
-                .then((querySnapshot) => {
-                    const blogs = [];
-                    querySnapshot.forEach((doc) => {
-                        const data = doc.data();
-                        blogs.push({
-                            id: doc.id,
-                            ...data,
-                            createdAt: data.createdAt.toDate()
-                        });
-                    });
-                    displayBlogPosts(blogs, currentPage);
-                    createPaginationControls(blogs.length, currentPage);
-                })
-                .catch((error) => {
-                    console.error("Error fetching blogs: ", error);
-                    blogContainer.innerHTML = '<p class="text-center">Error loading blog posts. Please try again later.</p>';
-                });
-        });
+            // Next button
+            if (currentPage < totalPages) {
+                html += `<li class="page-item"><a class="page-link" href="#" data-page="${currentPage + 1}">Next</a></li>`;
+            }
+
+            paginationContainer.innerHTML = html;
+        }
     </script>
-
 </body>
 
 </html>

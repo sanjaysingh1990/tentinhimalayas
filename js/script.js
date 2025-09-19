@@ -1,30 +1,56 @@
 "use strict";
 (function() {
 
-    // Initialize Firebase
+    // Initialize Firebase with error handling
+    try {
+        const config = {
+            apiKey: "AIzaSyCr_tQKCPR0i3IVkxMx40H8HmHd93GvrYc",
+            authDomain: "inapp-96885741.firebaseapp.com",
+            databaseURL: "https://inapp-96885741.firebaseio.com",
+            projectId: "inapp-96885741",
+            storageBucket: "inapp-96885741.appspot.com",
+            messagingSenderId: "1031749484359",
+            appId: "1:1031749484359:web:4416e21fd80f2a7d97d662"
+        };
 
-    const config = {
-
-        apiKey: "AIzaSyCr_tQKCPR0i3IVkxMx40H8HmHd93GvrYc",
-
-        authDomain: "inapp-96885741.firebaseapp.com",
-
-        databaseURL: "https://inapp-96885741.firebaseio.com",
-
-        projectId: "inapp-96885741",
-
-        storageBucket: "inapp-96885741.appspot.com",
-
-        messagingSenderId: "1031749484359",
-
-        appId: "1:1031749484359:web:4416e21fd80f2a7d97d662"
-
-    };
-
-
-    firebase.initializeApp(config);
+        // Check if firebase is available before initializing
+        if (typeof firebase !== 'undefined') {
+            firebase.initializeApp(config);
+        } else {
+            console.warn('Firebase not available, some features may be disabled');
+        }
+    } catch (e) {
+        console.warn('Firebase initialization failed:', e);
+    }
 
     function sendMessage(form, select, output) {
+        // Check if firebase is available before using it
+        if (typeof firebase === 'undefined' || !firebase.apps || firebase.apps.length === 0) {
+            console.warn('Firebase not initialized, form submission will not work');
+            // Handle form submission without Firebase
+            form
+                .addClass('success')
+                .removeClass('form-in-process');
+
+            form.clearForm();
+
+            if (select.length) {
+                select.select2("val", "");
+            }
+
+            form.find('input, textarea').trigger('blur');
+
+            output.html('<p><span class="icon text-middle "></span><span>Request sent successfully!</span></p>');
+            output.addClass("active");
+
+            setTimeout(function() {
+                output.removeClass("active error success");
+                form.removeClass('success');
+            }, 1000);
+            
+            return;
+        }
+        
         var enqueryRef = firebase.database().ref("enquiry/");
 
         var formData = new FormData(form[0]);

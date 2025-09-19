@@ -68,34 +68,108 @@
         .scale-element:hover {
             transform: scale(1.05);
         }
-        /* Blog detail styles */
+        /* Modern Blog Detail Styles */
         
         .blog-detail-header {
             margin-bottom: 30px;
+            text-align: center;
         }
         
         .blog-detail-title {
-            font-size: 32px;
+            font-size: 2.5rem;
+            font-weight: 700;
             margin-bottom: 15px;
+            color: #333;
         }
         
         .blog-detail-meta {
             color: #6c757d;
-            font-size: 16px;
+            font-size: 1rem;
             margin-bottom: 20px;
         }
+        /* Gallery Styles */
         
-        .blog-detail-image {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 5px;
+        .blog-gallery-container {
             margin-bottom: 30px;
+            position: relative;
         }
         
+        .blog-gallery-main {
+            position: relative;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+        }
+        
+        .blog-gallery-main img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .blog-gallery-thumbnails {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 5px;
+        }
+        
+        .gallery-thumbnail {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-thumbnail:hover,
+        .gallery-thumbnail.active {
+            border-color: #01b3a7;
+            transform: scale(1.05);
+        }
+        
+        .blog-gallery-navigation {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+        }
+        
+        .gallery-nav-btn {
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            pointer-events: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-nav-btn:hover {
+            background: #01b3a7;
+            color: white;
+        }
+        /* Content Styles */
+        
         .blog-detail-content {
-            font-size: 16px;
+            font-size: 1rem;
             line-height: 1.8;
+            color: #333;
+            margin-bottom: 30px;
         }
         
         .blog-detail-content p {
@@ -105,7 +179,40 @@
         .blog-detail-content h2 {
             margin-top: 30px;
             margin-bottom: 20px;
+            font-size: 1.8rem;
+            color: #333;
         }
+        
+        .blog-detail-content h3 {
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            color: #333;
+        }
+        
+        .blog-detail-content ul,
+        .blog-detail-content ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        .blog-detail-content li {
+            margin-bottom: 10px;
+        }
+        /* Tags */
+        
+        .blog-detail-tags {
+            margin: 30px 0;
+            padding: 20px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .blog-detail-tags h4 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        /* Social Share */
         
         .social-share {
             margin: 40px 0;
@@ -116,6 +223,7 @@
         
         .social-share h4 {
             margin-bottom: 15px;
+            color: #333;
         }
         
         .social-icons {
@@ -150,6 +258,7 @@
         .whatsapp {
             background-color: #25d366;
         }
+        /* Back to Blog */
         
         .back-to-blog {
             margin-top: 30px;
@@ -159,10 +268,50 @@
             color: #01b3a7;
             text-decoration: none;
             font-weight: 600;
+            display: inline-flex;
+            align-items: center;
         }
         
         .back-to-blog a:hover {
             text-decoration: underline;
+        }
+        
+        .back-to-blog a::before {
+            content: "←";
+            margin-right: 8px;
+        }
+        /* Error Message */
+        
+        .error-message {
+            color: #e74c3c;
+            font-weight: 500;
+            text-align: center;
+        }
+        /* Responsive */
+        
+        @media (max-width: 768px) {
+            .blog-detail-title {
+                font-size: 2rem;
+            }
+            .blog-gallery-main {
+                height: 300px;
+            }
+            .gallery-thumbnail {
+                width: 60px;
+                height: 60px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .blog-detail-title {
+                font-size: 1.8rem;
+            }
+            .blog-gallery-main {
+                height: 250px;
+            }
+            .social-icons {
+                flex-wrap: wrap;
+            }
         }
     </style>
 
@@ -267,7 +416,7 @@
                         </article>
 
                         <div class="back-to-blog">
-                            <a href="blog.html">← Back to Blog</a>
+                            <a href="blog.html">Back to Blog</a>
                         </div>
                     </div>
                 </div>
@@ -281,58 +430,44 @@
     <!-- Global Mailform Output-->
     <div class="snackbars" id="form-output-global"></div>
     <!-- Javascript-->
-    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase.js"></script>
+    <!-- Use production version of Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/fooder-loader.js"></script>
-
+    <!-- Load main module after Firebase is loaded -->
     <script>
-        // Initialize Firebase
-        const firebaseConfig = {
-            apiKey: "AIzaSyCr_tQKCPR0i3IVkxMx40H8HmHd93GvrYc",
-            authDomain: "inapp-96885741.firebaseapp.com",
-            databaseURL: "https://inapp-96885741.firebaseio.com",
-            projectId: "inapp-96885741",
-            storageBucket: "inapp-96885741.appspot.com",
-            messagingSenderId: "1031749484359",
-            appId: "1:1031749484359:web:4416e21fd80f2a7d97d662"
-        };
-
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-
-        // Blog detail functionality
+        console.log('Blog detail HTML script section started');
+        // Wait for Firebase to load, then load our module
         document.addEventListener('DOMContentLoaded', function() {
-            const blogContainer = document.getElementById('blog-detail-container');
-
-            // Get blog ID from URL
-            const urlParams = new URLSearchParams(window.location.search);
-            const blogId = urlParams.get('id') || 1;
-
-            // Fetch blog from Firebase
-            const db = firebase.firestore();
-            db.collection("blogs").doc(blogId)
-                .get()
-                .then((doc) => {
-                    if (doc.exists) {
-                        const data = doc.data();
-                        const blog = {
-                            id: doc.id,
-                            ...data,
-                            createdAt: data.createdAt.toDate()
-                        };
-                        displayBlogDetail(blog);
-                    } else {
-                        blogContainer.innerHTML = '<p class="text-center">Blog post not found.</p>';
-                    }
-                })
-                .catch((error) => {
-                    console.error("Error fetching blog: ", error);
-                    blogContainer.innerHTML = '<p class="text-center">Error loading blog post. Please try again later.</p>';
-                });
+            console.log('DOM content loaded in blog-detail.html');
+            // Check if we're on the blog detail page
+            if (document.getElementById('blog-detail-container')) {
+                console.log('Found blog-detail-container, attempting to load main module');
+                // Dynamically import the main module
+                import ('./src/main.js')
+                .then(() => {
+                        console.log('Blog detail module loaded successfully');
+                    })
+                    .catch(error => {
+                        console.error('Error loading blog detail module:', error);
+                        // Fallback to test data if module fails to load
+                        import ('./src/test/BlogDetailTest.js')
+                        .then(module => {
+                                const BlogDetailTest = module.default;
+                                const blogDetail = new BlogDetailTest('blog-detail-container');
+                                blogDetail.init();
+                            })
+                            .catch(testError => {
+                                console.error('Error loading test module:', testError);
+                                document.getElementById('blog-detail-container').innerHTML =
+                                    '<div class="text-center"><p class="error-message">Failed to load blog content. Please try again later.</p></div>';
+                            });
+                    });
+            }
         });
     </script>
-
 </body>
 
 </html>
