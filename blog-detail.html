@@ -212,6 +212,39 @@
             margin-bottom: 15px;
             color: #333;
         }
+        /* YouTube Video Section */
+        
+        .blog-youtube-video {
+            margin: 30px 0;
+            padding: 20px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .blog-youtube-video h4 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .youtube-video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 10px;
+        }
+        
+        .youtube-video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
         /* Social Share */
         
         .social-share {
@@ -459,28 +492,27 @@
                 }
 
                 // Sample blog data
-                const sampleBlogs = [
-                    {
-                        id: '1',
-                        title: 'Exploring the Hidden Valleys of Kumaon',
-                        description: `<p>Discover the breathtaking beauty of Kumaon's hidden valleys, where ancient villages nestle between towering peaks and pristine forests. Our recent expedition took us through trails less traveled, revealing stunning vistas and cultural gems that few tourists ever experience.</p>
+                const sampleBlogs = [{
+                    id: '1',
+                    title: 'Exploring the Hidden Valleys of Kumaon',
+                    description: `<p>Discover the breathtaking beauty of Kumaon's hidden valleys, where ancient villages nestle between towering peaks and pristine forests. Our recent expedition took us through trails less traveled, revealing stunning vistas and cultural gems that few tourists ever experience.</p>
                         <p>The journey began at dawn from our base camp near Almora, where we trekked through rhododendron forests that were just beginning to bloom. The air was crisp and filled with the scent of pine and wildflowers. As we ascended, the landscape transformed from dense woodland to alpine meadows dotted with grazing sheep.</p>
                         <h2>Ancient Villages and Local Culture</h2>
                         <p>Our first stop was the remote village of Dhaulchina, where we were welcomed by the warm smiles of locals who still practice traditional farming methods. The village elder, Pandit Ji, shared stories of his ancestors who settled here centuries ago, drawn by the fertile land and protective embrace of the mountains.</p>
                         <p>We spent the night in a traditional Kumaoni house, experiencing the unique architecture and hospitality of the region. The evening was filled with folk songs and local cuisine that featured organic produce grown in the village's terraced fields.</p>`,
-                        tags: ['Travel', 'Adventure', 'Culture'],
-                        images: [
-                            'images/slider-images/slider-1.webp',
-                            'images/slider-images/slider-2.webp',
-                            'images/slider-images/slider-3.webp',
-                            'images/slider-images/slider-4.webp'
-                        ],
-                        date: new Date()
-                    },
-                    {
-                        id: '2',
-                        title: 'Essential Gear for Himalayan Camping',
-                        description: `<p>Planning a camping trip in the Himalayas requires careful preparation and the right gear. The unpredictable weather and challenging terrain demand equipment that can withstand extreme conditions while keeping you comfortable and safe.</p>
+                    tags: ['Travel', 'Adventure', 'Culture'],
+                    images: [
+                        'images/slider-images/slider-1.webp',
+                        'images/slider-images/slider-2.webp',
+                        'images/slider-images/slider-3.webp',
+                        'images/slider-images/slider-4.webp'
+                    ],
+                    youtubeVideoId: 'UeiCf6FAETM',
+                    date: new Date()
+                }, {
+                    id: '2',
+                    title: 'Essential Gear for Himalayan Camping',
+                    description: `<p>Planning a camping trip in the Himalayas requires careful preparation and the right gear. The unpredictable weather and challenging terrain demand equipment that can withstand extreme conditions while keeping you comfortable and safe.</p>
                         <h2>Shelter and Sleep System</h2>
                         <p>Your tent is your home away from home, so invest in a high-quality, four-season tent designed for mountain conditions. Look for features like reinforced poles, waterproof fabric, and vestibules for storing gear. A good sleeping bag rated for temperatures 10-15 degrees lower than expected conditions is essential, along with a sleeping pad for insulation and comfort.</p>
                         <h2>Clothing and Layering</h2>
@@ -488,18 +520,18 @@
                         <p>Footwear is critical - invest in sturdy, waterproof hiking boots with good ankle support. Break them in before your trip to prevent blisters.</p>
                         <h2>Cooking and Hydration</h2>
                         <p>A lightweight camping stove that performs well in cold weather is essential. Carry enough fuel for your entire trip, plus extra for unexpected delays. For water, bring purification tablets or a reliable filter, and always carry more than you think you'll need.</p>`,
-                        tags: ['Camping', 'Gear', 'Himalayas'],
-                        images: [
-                            'images/slider-images/slider-5.webp',
-                            'images/categories/category_4.webp',
-                            'images/categories/category_5.webp'
-                        ],
-                        date: new Date(Date.now() - 86400000) // Yesterday
-                    },
-                    {
-                        id: '3',
-                        title: 'Wildlife Encounters in the Himalayas',
-                        description: `<p>The Himalayas are home to an incredible diversity of wildlife, from elusive snow leopards to colorful bird species found nowhere else on Earth. Responsible wildlife viewing can be one of the most rewarding aspects of a mountain expedition.</p>
+                    tags: ['Camping', 'Gear', 'Himalayas'],
+                    images: [
+                        'images/slider-images/slider-5.webp',
+                        'images/categories/category_4.webp',
+                        'images/categories/category_5.webp'
+                    ],
+                    youtubeVideoId: "https://www.youtube.com/watch?v=UeiCf6FAETM",
+                    date: new Date(Date.now() - 86400000) // Yesterday
+                }, {
+                    id: '3',
+                    title: 'Wildlife Encounters in the Himalayas',
+                    description: `<p>The Himalayas are home to an incredible diversity of wildlife, from elusive snow leopards to colorful bird species found nowhere else on Earth. Responsible wildlife viewing can be one of the most rewarding aspects of a mountain expedition.</p>
                         <h2>Bird Watching Paradise</h2>
                         <p>Bird enthusiasts will find the Himalayas a true paradise, with over 500 species recorded in the region. Early morning hours offer the best opportunities for sightings, as birds are most active during cooler temperatures. Look for species like the Himalayan monal, with its iridescent plumage, and the cheerful sounding laughing thrush.</p>
                         <p>Bring binoculars and a field guide specific to the region. Patience and quiet movement are key to successful bird watching.</p>
@@ -508,15 +540,15 @@
                         <p>For the extremely fortunate, there's always the possibility of spotting a snow leopard, though these elusive cats are masters of camouflage and require both skill and luck to observe.</p>
                         <h2>Responsible Wildlife Viewing</h2>
                         <p>Always maintain a safe distance from wildlife and never attempt to feed or approach animals. Use telephoto lenses for photography rather than getting too close. Stay on designated trails to minimize habitat disturbance.</p>`,
-                        tags: ['Wildlife', 'Photography', 'Nature'],
-                        images: [
-                            'images/gallery/small/image-gallery-small-1.webp',
-                            'images/gallery/small/image-gallery-small-2.webp',
-                            'images/gallery/small/image-gallery-small-3.webp'
-                        ],
-                        date: new Date(Date.now() - 172800000) // Two days ago
-                    }
-                ];
+                    tags: ['Wildlife', 'Photography', 'Nature'],
+                    images: [
+                        'images/gallery/small/image-gallery-small-1.webp',
+                        'images/gallery/small/image-gallery-small-2.webp',
+                        'images/gallery/small/image-gallery-small-3.webp'
+                    ],
+                    youtubeVideoId: "https://www.youtube.com/watch?v=UeiCf6FAETM",
+                    date: new Date(Date.now() - 172800000) // Two days ago
+                }];
 
                 // Find the blog with the matching ID
                 const blog = sampleBlogs.find(b => b.id === blogId);
@@ -542,6 +574,21 @@
                 day: 'numeric'
             });
 
+            // Generate YouTube video HTML if video ID exists
+            let youtubeVideoHTML = '';
+            if (blog.youtubeVideoId) {
+                youtubeVideoHTML = `
+                <div class="blog-youtube-video">
+                    <h4>Watch Video</h4>
+                    <div class="youtube-video-container">
+                        <iframe src="https://www.youtube.com/embed/${blog.youtubeVideoId}" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                    </div>
+                </div>
+                `;
+            }
+
             const html = `
                 <div class="blog-detail-header">
                     <h1 class="blog-detail-title">${blog.title}</h1>
@@ -553,6 +600,8 @@
                 <div class="blog-gallery-container">
                     ${renderGallery(blog.images)}
                 </div>
+                
+                ${youtubeVideoHTML}
                 
                 <div class="blog-detail-content">
                     ${blog.description}
