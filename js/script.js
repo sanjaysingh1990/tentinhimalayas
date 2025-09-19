@@ -1,25 +1,14 @@
 "use strict";
 (function() {
 
-    // Initialize Firebase with error handling
-    try {
-        const config = {
-            apiKey: "AIzaSyBjcV4BykdV3boinmn_-LQZ4IHgTqUwKvw",
-            authDomain: "bubble-2d982.firebaseapp.com",
-            databaseURL: "https://bubble-2d982-default-rtdb.firebaseio.com",
-            projectId: "bubble-2d982",
-            storageBucket: "bubble-2d982.appspot.com",
-            messagingSenderId: "680561170660",
-            appId: "1:680561170660:web:64598540804f465c7274f1"
-        };
-        // Check if firebase is available before initializing
-        if (typeof firebase !== 'undefined') {
-            firebase.initializeApp(config);
-        } else {
-            console.warn('Firebase not available, some features may be disabled');
-        }
-    } catch (e) {
-        console.warn('Firebase initialization failed:', e);
+    // Firebase is now initialized in src/firebase/config.js
+    // Check if firebase is available
+    if (typeof firebase !== 'undefined' && firebase.apps.length > 0) {
+        console.log('Firebase already initialized via config.js');
+    } else if (typeof firebase !== 'undefined') {
+        console.log('Firebase available but not yet initialized');
+    } else {
+        console.log('Firebase not available, some features may be disabled');
     }
 
     function sendMessage(form, select, output) {

@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(response => response.text()) // Convert response to text
         .then(data => {
             document.getElementById("common-footer").innerHTML = data; // Insert into div
-            
+
             // Initialize footer functionality after content is loaded
             initializeFooter();
         })
@@ -36,7 +36,7 @@ function initializeFooter() {
 
     // Trigger fade in on scroll and initial load
     window.addEventListener('scroll', fadeInElements);
-    
+
     // Trigger initial fade in
     setTimeout(fadeInElements, 100);
 }
