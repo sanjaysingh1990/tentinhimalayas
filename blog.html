@@ -34,7 +34,42 @@
             display: block;
         }
         
+        /* Enhanced animations and transitions */
+        .animated-element {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .fade-in-element {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in-element.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-in-element {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        
+        .slide-in-element.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scale-element {
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .scale-element:hover {
+            transform: scale(1.05);
+        }
         /* Blog styles */
+        
         .blog-post {
             margin-bottom: 40px;
             padding-bottom: 30px;
@@ -183,7 +218,7 @@
                             <h1>Latest from Our Blog</h1>
                             <p>Discover stories, tips, and insights from our adventures in the Himalayas</p>
                         </div>
-                        
+
                         <!-- Blog Posts Container -->
                         <div id="blog-posts-container">
                             <!-- Blog posts will be loaded here dynamically -->
@@ -191,7 +226,7 @@
                                 <p>Loading blog posts...</p>
                             </div>
                         </div>
-                        
+
                         <!-- Pagination -->
                         <nav aria-label="Blog pagination" class="pagination">
                             <ul class="pagination justify-content-center" id="pagination-controls">
@@ -214,7 +249,7 @@
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/fooder-loader.js"></script>
-    
+
     <script>
         // Initialize Firebase
         const firebaseConfig = {
@@ -226,88 +261,36 @@
             messagingSenderId: "1031749484359",
             appId: "1:1031749484359:web:4416e21fd80f2a7d97d662"
         };
-        
+
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
-        
+
         // Blog functionality
         document.addEventListener('DOMContentLoaded', function() {
             const blogContainer = document.getElementById('blog-posts-container');
             const paginationContainer = document.getElementById('pagination-controls');
-            
-            // Sample blog data (in a real implementation, this would come from Firebase)
-            const sampleBlogs = [
-                {
-                    id: 1,
-                    title: "Best Camping Spots in Kumaon Himalayas",
-                    description: "Discover the most breathtaking camping locations in the Kumaon region of Uttarakhand that offer stunning views and unforgettable experiences.",
-                    imageUrl: "images/slider-images/slider-1.webp",
-                    author: "Admin",
-                    createdAt: new Date('2025-04-15')
-                },
-                {
-                    id: 2,
-                    title: "Essential Gear for Himalayan Treks",
-                    description: "Learn what equipment you need to pack for a safe and enjoyable trekking experience in the Himalayas.",
-                    imageUrl: "images/slider-images/slider-2.webp",
-                    author: "Admin",
-                    createdAt: new Date('2025-04-10')
-                },
-                {
-                    id: 3,
-                    title: "Village Walks: Immersing in Local Culture",
-                    description: "Experience the authentic culture of Himalayan villages through our guided village walking tours.",
-                    imageUrl: "images/slider-images/slider-3.webp",
-                    author: "Admin",
-                    createdAt: new Date('2025-04-05')
-                },
-                {
-                    id: 4,
-                    title: "Seasonal Guide to Himalayan Camping",
-                    description: "Understand the best times to visit different regions and what to expect during each season.",
-                    imageUrl: "images/slider-images/slider-4.webp",
-                    author: "Admin",
-                    createdAt: new Date('2025-03-28')
-                },
-                {
-                    id: 5,
-                    title: "Wildlife Encounters in the Himalayas",
-                    description: "Learn about the diverse flora and fauna you might encounter during your Himalayan adventure.",
-                    imageUrl: "images/slider-images/slider-5.webp",
-                    author: "Admin",
-                    createdAt: new Date('2025-03-20')
-                },
-                {
-                    id: 6,
-                    title: "Local Cuisine: A Culinary Journey",
-                    description: "Explore the delicious traditional dishes of the Kumaon region and what makes them special.",
-                    imageUrl: "images/categories/category_5.webp",
-                    author: "Admin",
-                    createdAt: new Date('2025-03-15')
-                }
-            ];
-            
+
             // Pagination settings
             const postsPerPage = 3;
             let currentPage = 1;
-            
+
             // Function to format date
             function formatDate(date) {
-                return date.toLocaleDateString('en-US', { 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric' 
+                return date.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
                 });
             }
-            
+
             // Function to display blog posts
             function displayBlogPosts(posts, page) {
                 const startIndex = (page - 1) * postsPerPage;
                 const endIndex = startIndex + postsPerPage;
                 const postsToShow = posts.slice(startIndex, endIndex);
-                
+
                 let html = '';
-                
+
                 if (postsToShow.length === 0) {
                     html = '<p class="text-center">No blog posts available at the moment. Please check back later!</p>';
                 } else {
@@ -325,34 +308,34 @@
                         `;
                     });
                 }
-                
+
                 blogContainer.innerHTML = html;
             }
-            
+
             // Function to create pagination controls
             function createPaginationControls(totalPosts, currentPage) {
                 const totalPages = Math.ceil(totalPosts / postsPerPage);
-                
+
                 let html = '';
-                
+
                 // Previous button
                 if (currentPage > 1) {
                     html += `<li class="page-item"><a class="page-link" href="#" data-page="${currentPage - 1}">Previous</a></li>`;
                 }
-                
+
                 // Page numbers
                 for (let i = 1; i <= totalPages; i++) {
                     const activeClass = (i === currentPage) ? 'active' : '';
                     html += `<li class="page-item ${activeClass}"><a class="page-link" href="#" data-page="${i}">${i}</a></li>`;
                 }
-                
+
                 // Next button
                 if (currentPage < totalPages) {
                     html += `<li class="page-item"><a class="page-link" href="#" data-page="${currentPage + 1}">Next</a></li>`;
                 }
-                
+
                 paginationContainer.innerHTML = html;
-                
+
                 // Add event listeners to pagination links
                 document.querySelectorAll('#pagination-controls .page-link').forEach(link => {
                     link.addEventListener('click', function(e) {
@@ -361,19 +344,16 @@
                         currentPage = page;
                         displayBlogPosts(sampleBlogs, currentPage);
                         createPaginationControls(sampleBlogs.length, currentPage);
-                        
+
                         // Scroll to top of blog section
-                        document.querySelector('.section-first').scrollIntoView({ behavior: 'smooth' });
+                        document.querySelector('.section-first').scrollIntoView({
+                            behavior: 'smooth'
+                        });
                     });
                 });
             }
-            
-            // Initial display
-            displayBlogPosts(sampleBlogs, currentPage);
-            createPaginationControls(sampleBlogs.length, currentPage);
-            
-            // In a real implementation, you would fetch from Firebase like this:
-            /*
+
+            // Fetch blogs from Firebase
             const db = firebase.firestore();
             db.collection("blogs")
                 .orderBy("createdAt", "desc")
@@ -395,7 +375,6 @@
                     console.error("Error fetching blogs: ", error);
                     blogContainer.innerHTML = '<p class="text-center">Error loading blog posts. Please try again later.</p>';
                 });
-            */
         });
     </script>
 

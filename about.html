@@ -33,6 +33,41 @@
         html.lt-ie-10 .ie-panel {
             display: block;
         }
+        
+        /* Enhanced animations and transitions */
+        .animated-element {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .fade-in-element {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in-element.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-in-element {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        
+        .slide-in-element.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scale-element {
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .scale-element:hover {
+            transform: scale(1.05);
+        }
     </style>
     <script>
         window.addEventListener('popstate', function() {
@@ -126,9 +161,9 @@
         <section class="section section-sm section-first bg-default text-md-left">
             <div class="container">
                 <div class="row row-50 justify-content-center align-items-xl-center">
-                    <div class="col-md-10 col-lg-5 col-xl-6"><img src="images/logo/logo.png" alt="" width="519" height="564" loading="lazy" />
+                    <div class="col-md-10 col-lg-5 col-xl-6 fade-in-element"><img src="images/logo/logo.png" alt="" width="519" height="564" loading="lazy" />
                     </div>
-                    <div class="col-md-10 col-lg-7 col-xl-6">
+                    <div class="col-md-10 col-lg-7 col-xl-6 fade-in-element">
                         <h1 class="text-spacing-25 font-weight-normal title-opacity-5">Why choose us</h1>
                         <!-- Bootstrap tabs-->
                         <div class="tabs-custom tabs-horizontal tabs-line" id="tabs-4">
@@ -413,7 +448,25 @@
         <script src="js/core.min.js"></script>
         <script src="js/script.js"></script>
         <script src="js/fooder-loader.js"></script>
+        
+        <script>
+            // Fade in elements when they come into view
+            function fadeInElements() {
+                document.querySelectorAll('.fade-in-element').forEach(function(element) {
+                    var elementTop = element.getBoundingClientRect().top;
+                    var elementBottom = elementTop + element.offsetHeight;
+                    var viewportTop = window.pageYOffset;
+                    var viewportBottom = viewportTop + window.innerHeight;
+                    
+                    if (elementBottom > viewportTop && elementTop < viewportBottom) {
+                        element.classList.add('visible');
+                    }
+                });
+            }
 
-</body>
-
-</html>
+            // Trigger fade in on scroll and initial load
+            window.addEventListener('scroll', fadeInElements);
+            window.addEventListener('load', function() {
+                setTimeout(fadeInElements, 100);
+            });
+        </script>

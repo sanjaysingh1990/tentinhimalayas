@@ -47,6 +47,21 @@
   <lastmod>2025-04-15T13:11:58+00:00</lastmod>
   <priority>0.80</priority>
 </url>
+<url>
+  <loc>https://www.tentinhimalayas.com/blog.html</loc>
+  <lastmod>2025-04-15T13:11:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.tentinhimalayas.com/blog-detail.html</loc>
+  <lastmod>2025-04-15T13:11:58+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://www.tentinhimalayas.com/terms-optimized.html</loc>
+  <lastmod>2025-04-15T13:11:58+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
 
 
 </urlset>

@@ -233,6 +233,41 @@
             text-decoration: underline;
         }
         
+        /* Enhanced animations and transitions */
+        .animated-element {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .fade-in-element {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in-element.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-in-element {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        
+        .slide-in-element.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scale-element {
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .scale-element:hover {
+            transform: scale(1.05);
+        }
+        
         @media (max-width: 768px) {
             .content {
                 padding: 30px 20px;
@@ -258,14 +293,14 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="header">
+    <div class="container fade-in-element">
+        <div class="header slide-in-element">
             <h1>Terms & Conditions</h1>
             <p>Clear, transparent terms for your Himalayan adventure</p>
         </div>
 
         <div class="content">
-            <div class="intro-section">
+            <div class="intro-section fade-in-element">
                 <h3>Welcome to TentInHimalayas</h3>
                 <p><strong>Company:</strong> TentInHimalayas Tours Private Limited<br>
                     <strong>Registration:</strong> Almora, Uttarakhand, India<br>
@@ -276,7 +311,7 @@
                 </div>
             </div>
 
-            <div class="section">
+            <div class="section fade-in-element">
                 <h2>
                     <span class="section-icon">1</span> Booking Process
                 </h2>
@@ -288,21 +323,21 @@
                     </ul>
                 </div>
 
-                <div class="highlight-box">
+                <div class="highlight-box fade-in-element">
                     <strong>⚡ Booking Confirmation:</strong> Your booking is confirmed only when we receive your deposit and you accept our terms via email or phone.
                 </div>
 
-                <div class="info-card">
+                <div class="info-card fade-in-element">
                     <strong>👥 Group Bookings:</strong> The person making the booking must have consent from all travelers and is responsible for all payments.
                 </div>
             </div>
 
-            <div class="section">
+            <div class="section fade-in-element">
                 <h2>
                     <span class="section-icon">2</span> Payment Terms
                 </h2>
 
-                <table class="payment-table">
+                <table class="payment-table fade-in-element">
                     <thead>
                         <tr>
                             <th>Payment Stage</th>
@@ -329,12 +364,12 @@
                     </tbody>
                 </table>
 
-                <div class="highlight-box">
+                <div class="highlight-box fade-in-element">
                     <strong>💳 Payment Methods:</strong> Credit/Debit Card or Wire Transfer
                 </div>
             </div>
 
-            <div class="section">
+            <div class="section fade-in-element">
                 <h2>
                     <span class="section-icon">3</span> Pricing & Changes
                 </h2>
@@ -347,13 +382,13 @@
                 </div>
             </div>
 
-            <div class="section">
+            <div class="section fade-in-element">
                 <h2>
                     <span class="section-icon">4</span> Cancellation Policy
                 </h2>
                 <p style="margin-bottom: 20px;">Cancellation fees apply as follows:</p>
 
-                <table class="cancellation-table">
+                <table class="cancellation-table fade-in-element">
                     <thead>
                         <tr>
                             <th>Days Before Departure</th>
@@ -380,43 +415,43 @@
                     </tbody>
                 </table>
 
-                <div class="important-note">
+                <div class="important-note fade-in-element">
                     <strong>⏰ Refund Processing:</strong> Refunds may take up to 15 working days to process.
                 </div>
             </div>
 
-            <div class="section">
+            <div class="section fade-in-element">
                 <h2>
                     <span class="section-icon">5</span> Health & Special Requirements
                 </h2>
                 <div class="subsection">
                     <h3>Medical Conditions & Dietary Needs</h3>
-                    <div class="info-card">
+                    <div class="info-card fade-in-element">
                         <p><strong>🏥 Important:</strong> Inform us of any medical conditions, dietary requirements, or special needs at booking time. Our destinations are remote with limited medical facilities.</p>
                     </div>
 
-                    <div class="important-note">
+                    <div class="important-note fade-in-element">
                         <strong>⚠️ Disclaimer:</strong> TentInHimalayas reserves the right to refuse bookings where medical conditions may impair travel enjoyment or safety.
                     </div>
                 </div>
             </div>
 
-            <div class="section">
+            <div class="section fade-in-element">
                 <h2>
                     <span class="section-icon">6</span> Age Requirements
                 </h2>
                 <div class="age-requirements">
-                    <div class="age-card">
+                    <div class="age-card fade-in-element">
                         <h4>Ladakh</h4>
                         <div class="age-number">7+</div>
                         <p>years minimum</p>
                     </div>
-                    <div class="age-card">
+                    <div class="age-card fade-in-element">
                         <h4>Kumaon & Sikkim</h4>
                         <div class="age-number">5+</div>
                         <p>years minimum</p>
                     </div>
-                    <div class="age-card">
+                    <div class="age-card fade-in-element">
                         <h4>Leti 360</h4>
                         <div class="age-number">12+</div>
                         <p>years minimum</p>
@@ -424,11 +459,11 @@
                 </div>
             </div>
 
-            <div class="section">
+            <div class="section fade-in-element">
                 <h2>
                     <span class="section-icon">7</span> Travel Documentation
                 </h2>
-                <div class="highlight-box">
+                <div class="highlight-box fade-in-element">
                     <strong>📄 Your Responsibility:</strong> Ensure you have all required travel documents:
                     <ul style="margin-top: 10px; margin-left: 20px;">
                         <li>Valid passport</li>
@@ -438,12 +473,12 @@
                     </ul>
                 </div>
 
-                <div class="important-note">
+                <div class="important-note fade-in-element">
                     <strong>❌ No Show Policy:</strong> Failure to travel with correct documentation will be treated as cancellation.
                 </div>
             </div>
 
-            <div class="section">
+            <div class="section fade-in-element">
                 <h2>
                     <span class="section-icon">8</span> Force Majeure & Changes
                 </h2>
@@ -457,50 +492,50 @@
                         <li>Terrorist activities</li>
                     </ul>
 
-                    <div class="important-note">
+                    <div class="important-note fade-in-element">
                         <strong>💰 Cost Responsibility:</strong> Costs for changes due to force majeure events are borne by the traveler when already in India.
                     </div>
                 </div>
             </div>
 
-            <div class="section">
+            <div class="section fade-in-element">
                 <h2>
                     <span class="section-icon">9</span> Complaints & Resolution
                 </h2>
                 <div class="subsection">
-                    <div class="info-card">
+                    <div class="info-card fade-in-element">
                         <strong>📞 During Travel:</strong> Contact your guide, house manager, or Delhi staff immediately for any issues.
                     </div>
 
-                    <div class="highlight-box">
+                    <div class="highlight-box fade-in-element">
                         <strong>✍️ Post-Travel:</strong> Submit written complaints within 21 days of departure from India.
                     </div>
                 </div>
             </div>
 
-            <div class="section">
+            <div class="section fade-in-element">
                 <h2>
                     <span class="section-icon">10</span> Liability & Responsibility
                 </h2>
-                <div class="important-note">
+                <div class="important-note fade-in-element">
                     <p><strong>⚖️ Your Responsibility:</strong> You are fully responsible for any damage or loss to our properties, equipment, staff, vehicles, or supplier assets. Payment for damages must be made upon request.</p>
 
                     <p style="margin-top: 15px;"><strong>🚫 Termination Rights:</strong> We reserve the right to terminate arrangements due to threatening behavior or misconduct without refund.</p>
                 </div>
             </div>
 
-            <div class="section">
+            <div class="section fade-in-element">
                 <h2>
                     <span class="section-icon">11</span> Legal Information
                 </h2>
-                <div class="info-card">
+                <div class="info-card fade-in-element">
                     <p><strong>⚖️ Governing Law:</strong> This contract is governed by the laws of the Republic of India. Any disputes will be dealt with exclusively by Indian courts.</p>
 
                     <p style="margin-top: 15px;"><strong>📝 Terms Updates:</strong> We reserve the right to update these terms. Current terms apply to all bookings.</p>
                 </div>
             </div>
 
-            <div class="contact-footer">
+            <div class="contact-footer fade-in-element">
                 <h3>Need Help?</h3>
                 <p>Contact our team for assistance with your booking:</p>
                 <p style="margin-top: 10px;">
@@ -510,6 +545,28 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Fade in elements when they come into view
+        function fadeInElements() {
+            document.querySelectorAll('.fade-in-element').forEach(function(element) {
+                var elementTop = element.getBoundingClientRect().top;
+                var elementBottom = elementTop + element.offsetHeight;
+                var viewportTop = window.pageYOffset;
+                var viewportBottom = viewportTop + window.innerHeight;
+                
+                if (elementBottom > viewportTop && elementTop < viewportBottom) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Trigger fade in on scroll and initial load
+        window.addEventListener('scroll', fadeInElements);
+        window.addEventListener('load', function() {
+            setTimeout(fadeInElements, 100);
+        });
+    </script>
 </body>
 
 </html>

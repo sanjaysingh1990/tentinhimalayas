@@ -34,7 +34,42 @@
             display: block;
         }
         
+        /* Enhanced animations and transitions */
+        .animated-element {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .fade-in-element {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in-element.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-in-element {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        
+        .slide-in-element.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scale-element {
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .scale-element:hover {
+            transform: scale(1.05);
+        }
         /* Accordion styles */
+        
         .accordion {
             margin-bottom: 20px;
         }
@@ -79,8 +114,8 @@
             max-height: 1000px;
             transition: max-height 0.5s ease-in;
         }
-        
         /* Table of contents */
+        
         .toc {
             background-color: #f8f9fa;
             padding: 20px;
@@ -110,18 +145,17 @@
         .toc a:hover {
             text-decoration: underline;
         }
-        
         /* Section spacing */
+        
         .terms-section {
             margin-bottom: 40px;
         }
-        
         /* Responsive table */
+        
         @media (max-width: 768px) {
             table {
                 font-size: 14px;
             }
-            
             table td:first-child {
                 width: 60%;
             }
@@ -188,7 +222,7 @@
                             <h2>Terms and Conditions</h2>
                         </center>
                         <br/>
-                        
+
                         <!-- Table of Contents -->
                         <div class="toc">
                             <h3>Table of Contents</h3>
@@ -207,7 +241,7 @@
                                 <li><a href="#behavior">Behavior</a></li>
                             </ul>
                         </div>
-                        
+
                         <!-- Introduction -->
                         <div class="accordion">
                             <div class="accordion-header" id="intro">Introduction</div>
@@ -215,13 +249,14 @@
                                 <div class="terms-section">
                                     <p>The following terms and conditions and general information published in our website
                                         <a href="https://www.tentinhimalayas.com/">https://www.tentinhimalayas.com</a></p>
-                                    <p>comprise the contract between you and TentInHimalayas Tours Private Limited a company registered in the city of Mumbai,Maharashtra, India, (hereinafter referred to as TentInHimalayas). Please read these conditions and our general information
-                                        carefully prior to make a booking with us. Acceptance of our terms and conditions by email or fax is required to confirm your booking with us at the time of sending your deposit for travel arrangements you wish to book.
+                                    <p>comprise the contract between you and TentInHimalayas Tours Private Limited a company registered in the city of Mumbai,Maharashtra, India, (hereinafter referred to as TentInHimalayas). Please read these conditions and
+                                        our general information carefully prior to make a booking with us. Acceptance of our terms and conditions by email or fax is required to confirm your booking with us at the time of sending your deposit for travel
+                                        arrangements you wish to book.
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Making a Booking -->
                         <div class="accordion">
                             <div class="accordion-header" id="booking">Making a Booking</div>
@@ -229,31 +264,32 @@
                                 <div class="terms-section">
                                     <p>To make a booking you may call our team directly or contact us via email at
                                         <a title="[GMCP] Compose a new mail to tentinhimalayas@gmail.com" onclick="window.open('https://mail.google.com/mail/?view=cm&amp;fs=1&amp;tf=1&amp;to=tentinhimalayas@gmail.com','Compose new message','width=640,height=480');return false" rel="noreferrer"
-                                            href="mailto:tentinhimalayas@gmail.com">tentinhimalayas@gmail.com</a> . Our consultants will help you to select the travel arrangements that you require and will offer you a price for these arrangements. Your booking
-                                        with TentInHimalayas is confirmed when we have received your deposit for the arrangements that you have confirmed by email or by phone with our staff and agents. If you are making a booking for more than one person, the person confirming
-                                        the booking must have the consent of other accompanying guests to make the booking on their behalf and this person will be responsible for all payments for all guests travelling on the booking. For the purposes of our booking conditions
-                                        "you" means the individual making the booking and all members of the party travelling with them.
+                                            href="mailto:tentinhimalayas@gmail.com">tentinhimalayas@gmail.com</a> . Our consultants will help you to select the travel arrangements that you require and will offer you
+                                        a price for these arrangements. Your booking with TentInHimalayas is confirmed when we have received your deposit for the arrangements that you have confirmed by email or by phone with our staff and agents. If you
+                                        are making a booking for more than one person, the person confirming the booking must have the consent of other accompanying guests to make the booking on their behalf and this person will be responsible for all
+                                        payments for all guests travelling on the booking. For the purposes of our booking conditions "you" means the individual making the booking and all members of the party travelling with them.
                                     </p>
-                                    <p>We make every reasonable effort to ensure that any written or oral instructions provided to us are accurately reflected in the documentation we provide to our clients and on which a booking is based. Please check the information we send
-                                        you to ensure that it is accurate and reflects the instructions you have given us. We cannot be responsible for any errors that may result from an inaccuracy in our documentation that is not notified to us by email within 10 days of
-                                        it being sent to you and on which you may book your arrangements or amend them.</p>
+                                    <p>We make every reasonable effort to ensure that any written or oral instructions provided to us are accurately reflected in the documentation we provide to our clients and on which a booking is based. Please check the
+                                        information we send you to ensure that it is accurate and reflects the instructions you have given us. We cannot be responsible for any errors that may result from an inaccuracy in our documentation that is not
+                                        notified to us by email within 10 days of it being sent to you and on which you may book your arrangements or amend them.</p>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Rates -->
                         <div class="accordion">
                             <div class="accordion-header" id="rates">Rates</div>
                             <div class="accordion-content">
                                 <div class="terms-section">
-                                    <p>The rates for your TentInHimalayas programme will be based upon our published tariff. The rates for supporting arrangements prior to or post the TentInHimalayas programme that you book will be based upon the rates available to us at the
-                                        time of booking. Rates that are quoted to you for non TentInHimalayas services which we purchase through agents and trusted partners will be valid for 7 days from the date they are issued and should be confirmed within this period.</p>
-                                    <p>Once you have made a booking with TentInHimalayas and paid your deposit there will be no change to your price except where the Government of India impose any new taxes on travel and travel suppliers and such a change is greater than 2%
-                                        of your total arrangements booked with the company.</p>
+                                    <p>The rates for your TentInHimalayas programme will be based upon our published tariff. The rates for supporting arrangements prior to or post the TentInHimalayas programme that you book will be based upon the rates available
+                                        to us at the time of booking. Rates that are quoted to you for non TentInHimalayas services which we purchase through agents and trusted partners will be valid for 7 days from the date they are issued and should
+                                        be confirmed within this period.</p>
+                                    <p>Once you have made a booking with TentInHimalayas and paid your deposit there will be no change to your price except where the Government of India impose any new taxes on travel and travel suppliers and such a change
+                                        is greater than 2% of your total arrangements booked with the company.</p>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Payment -->
                         <div class="accordion">
                             <div class="accordion-header" id="payment">Payment</div>
@@ -261,63 +297,66 @@
                                 <div class="terms-section">
                                     <p>Payment may be made for your holiday by credit/debit card or by wire transfer to our bank.</p>
                                     <p>25% of the total booking cost is to be paid at the time of confirmation of your reservation. No reservation is deemed to be confirmed until such time as full payment has been received by the company.</p>
-                                    <p>75% of the total booking is to be received 120 days prior to the commencement of your arrangements booked with us. Non receipt of final payment by the due date will be treated as a cancellation and relevant cancellation charges will apply.</p>
+                                    <p>75% of the total booking is to be received 120 days prior to the commencement of your arrangements booked with us. Non receipt of final payment by the due date will be treated as a cancellation and relevant cancellation
+                                        charges will apply.</p>
                                     <p>Bookings made within 60 days will require full payment at the time of booking to confirm the reservation.</p>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Medical Information -->
                         <div class="accordion">
                             <div class="accordion-header" id="medical">Medical Information and Special Requests</div>
                             <div class="accordion-content">
                                 <div class="terms-section">
-                                    <p>It is necessary for you to inform us about any medical condition, dietary requirement or special requirements that may have a significant or material impact on your ability to enjoy your booked arrangements. These should be advised to
-                                        us at the time of booking and whilst we may be able to accommodate special requests and requirements we cannot be responsible for any loss of enjoyment that may arise from your failure to communicate these issues at the time of booking.
-                                        Some of the areas in which operate are very remote, with limited medical facilities and as such we reserve the right to refuse a booking where a medical condition may impair your ability to enjoy or fulfill your travel arrangements.
-                                        TentInHimalayas will not be responsible for any curtailment or amendment to travel arrangements that result from a medical condition either pre-existing or occurring during your travel arrangements.</p>
+                                    <p>It is necessary for you to inform us about any medical condition, dietary requirement or special requirements that may have a significant or material impact on your ability to enjoy your booked arrangements. These should
+                                        be advised to us at the time of booking and whilst we may be able to accommodate special requests and requirements we cannot be responsible for any loss of enjoyment that may arise from your failure to communicate
+                                        these issues at the time of booking. Some of the areas in which operate are very remote, with limited medical facilities and as such we reserve the right to refuse a booking where a medical condition may impair
+                                        your ability to enjoy or fulfill your travel arrangements. TentInHimalayas will not be responsible for any curtailment or amendment to travel arrangements that result from a medical condition either pre-existing
+                                        or occurring during your travel arrangements.</p>
                                     <p>If you have any dietary requests our staff will normally be able to accommodate these but such requests are only our responsibility where we have confirmed to you in writing our ability to fulfill them.</p>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Changes to Booking -->
                         <div class="accordion">
                             <div class="accordion-header" id="changes">Changes to Your Booking</div>
                             <div class="accordion-content">
                                 <div class="terms-section">
-                                    <p>Once you have booked your travel arrangements with us, changes you may wish to make to your booked arrangements after receipt of your deposit will be possible subject to any charges that may be made by our suppliers. Any change that requires
-                                        an alteration of dates to any booking, including postponement may be treated as a cancellation and our cancellation policy applied depending upon the notice given prior to arrival.</p>
-                                    <p>In the event that your arrangements need to be changed as a result of a missed, delayed or cancelled international or domestic airline flight, car or rail journey we will provide every assistance to you to make the required changes to
-                                        your travel arrangements, but you will be responsible for the cost of such changes.</p>
-                                    <p>Where your arrangements need to be changed, curtailed or abandoned due to circumstances beyond the control of TentInHimalayas , including but not limited to acts of god, civil commotion, strikes, war, threat of war, terrorist activity
-                                        either threatened or actual, natural or nuclear disaster and events beyond the reasonable control of TentInHimalayas, we will, depending upon whether you are in the country or due to travel, either make alternate arrangements or offer
-                                        you alternate travel arrangements where available. If such events occur whilst you are already travelling in India the costs of such arrangements will be borne by you. TentInHimalayas is regrettably unable to pay compensation or take
-                                        responsibility for any costs, losses and liabilities that may result from such events, where they affect the ability of TentInHimalayas to promptly and efficiently deliver its contracted arrangements to you or such events give rise
-                                        to personal loss, distress, injury, or death.</p>
+                                    <p>Once you have booked your travel arrangements with us, changes you may wish to make to your booked arrangements after receipt of your deposit will be possible subject to any charges that may be made by our suppliers.
+                                        Any change that requires an alteration of dates to any booking, including postponement may be treated as a cancellation and our cancellation policy applied depending upon the notice given prior to arrival.</p>
+                                    <p>In the event that your arrangements need to be changed as a result of a missed, delayed or cancelled international or domestic airline flight, car or rail journey we will provide every assistance to you to make the
+                                        required changes to your travel arrangements, but you will be responsible for the cost of such changes.</p>
+                                    <p>Where your arrangements need to be changed, curtailed or abandoned due to circumstances beyond the control of TentInHimalayas , including but not limited to acts of god, civil commotion, strikes, war, threat of war,
+                                        terrorist activity either threatened or actual, natural or nuclear disaster and events beyond the reasonable control of TentInHimalayas, we will, depending upon whether you are in the country or due to travel, either
+                                        make alternate arrangements or offer you alternate travel arrangements where available. If such events occur whilst you are already travelling in India the costs of such arrangements will be borne by you. TentInHimalayas
+                                        is regrettably unable to pay compensation or take responsibility for any costs, losses and liabilities that may result from such events, where they affect the ability of TentInHimalayas to promptly and efficiently
+                                        deliver its contracted arrangements to you or such events give rise to personal loss, distress, injury, or death.</p>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Contract -->
                         <div class="accordion">
                             <div class="accordion-header" id="contract">Contract</div>
                             <div class="accordion-content">
                                 <div class="terms-section">
-                                    <p>A binding contract exists between you and TentInHimalayas once you have accepted our terms and conditions and paid your deposit. The laws of the Republic of India will apply to this contract and to any dispute or claim which arises from
-                                        it. Any dispute of claim that may arise will be exclusively dealt with by the courts of India. We reserve the right to change our booking conditions and general travel information from time to time as published on our website. You
-                                        will not be exempt from any terms and conditions unless specifically agreed with us in writing.</p>
+                                    <p>A binding contract exists between you and TentInHimalayas once you have accepted our terms and conditions and paid your deposit. The laws of the Republic of India will apply to this contract and to any dispute or claim
+                                        which arises from it. Any dispute of claim that may arise will be exclusively dealt with by the courts of India. We reserve the right to change our booking conditions and general travel information from time to
+                                        time as published on our website. You will not be exempt from any terms and conditions unless specifically agreed with us in writing.</p>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Cancellation -->
                         <div class="accordion">
                             <div class="accordion-header" id="cancellation">Cancellation Policy</div>
                             <div class="accordion-content">
                                 <div class="terms-section">
-                                    <p>Bookings cancelled after confirmation and payment of deposit will incur cancellation fees as a percentage of the total booking cost as follows, dependent upon the number of days prior to departure that arrangements are cancelled:</p>
-                                    
+                                    <p>Bookings cancelled after confirmation and payment of deposit will incur cancellation fees as a percentage of the total booking cost as follows, dependent upon the number of days prior to departure that arrangements
+                                        are cancelled:</p>
+
                                     <table class="table table-bordered">
                                         <tbody>
                                             <tr>
@@ -338,62 +377,62 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                    
+
                                     <center>
                                         <p>Refund process may take upto 15 working days.</p>
                                     </center>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Travel Documents -->
                         <div class="accordion">
                             <div class="accordion-header" id="documents">Travel Documents</div>
                             <div class="accordion-content">
                                 <div class="terms-section">
-                                    <p>It is your responsibility to ensure that you have the correct travel documents to enable you to travel to India. These may include but are not limited to, valid passport, flight tickets, correct visa for India and any other requirements
-                                        that may from time to time be required. TentInHimalayas will not be responsible for any alterations to travel arrangements that may arise from your failure to travel with the correct documentation. Non arrival in India as a result
-                                        of incorrect documentation will be treated as a cancellation by the company.</p>
+                                    <p>It is your responsibility to ensure that you have the correct travel documents to enable you to travel to India. These may include but are not limited to, valid passport, flight tickets, correct visa for India and any
+                                        other requirements that may from time to time be required. TentInHimalayas will not be responsible for any alterations to travel arrangements that may arise from your failure to travel with the correct documentation.
+                                        Non arrival in India as a result of incorrect documentation will be treated as a cancellation by the company.</p>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Child Policy -->
                         <div class="accordion">
                             <div class="accordion-header" id="child">Child Policy</div>
                             <div class="accordion-content">
                                 <div class="terms-section">
-                                    <p>TentInHimalayas has a child policy for its various properties and locations based upon safety criteria and the type of travel arrangements that we offer. For Ladakh we have a minimum age requirement of 7 years, for Kumaon, excluding Leti
-                                        360, and Sikkim the minimum age requirement is 5 years and for Leti 360 it is 12 years of age. TentInHimalayas clients include many families with young children, please consult with our staff to ensure that we can deliver a family
-                                        holiday that will suit your requirements.</p>
+                                    <p>TentInHimalayas has a child policy for its various properties and locations based upon safety criteria and the type of travel arrangements that we offer. For Ladakh we have a minimum age requirement of 7 years, for
+                                        Kumaon, excluding Leti 360, and Sikkim the minimum age requirement is 5 years and for Leti 360 it is 12 years of age. TentInHimalayas clients include many families with young children, please consult with our staff
+                                        to ensure that we can deliver a family holiday that will suit your requirements.</p>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Complaints -->
                         <div class="accordion">
                             <div class="accordion-header" id="complaints">Complaints and Problems</div>
                             <div class="accordion-content">
                                 <div class="terms-section">
-                                    <p>In the event that you have any reason to complain or experience any problems with your travel arrangements whilst you are in India you must immediately inform your guide, house manager or one of our Delhi staff, so that we can attend to
-                                        any service issue that may arise and promptly rectify it. If you wish to complain about an aspect of our service after you have left India this should be communicated to us in writing within 21 days of your departure from India. Where
-                                        any complaint arises from services not wholly owned or operated by TentInHimalayas we will use our best endeavours to address the issue with the relevant supplier during your stay in India. However TentInHimalayas is unable to accept
-                                        responsibility or liability for failures and omissions of its suppliers where it neither owns, manages or controls such suppliers. We do however exercise care and attention when selecting and promoting the services of third parties
-                                        to support your travel arrangements. However any assistance provided by TentInHimalayas in resolving a complaint in relation to any arrangements provided by suppliers to TentInHimalayas is provided on a goodwill basis and in its capacity
-                                        as agent for such suppliers.</p>
+                                    <p>In the event that you have any reason to complain or experience any problems with your travel arrangements whilst you are in India you must immediately inform your guide, house manager or one of our Delhi staff, so
+                                        that we can attend to any service issue that may arise and promptly rectify it. If you wish to complain about an aspect of our service after you have left India this should be communicated to us in writing within
+                                        21 days of your departure from India. Where any complaint arises from services not wholly owned or operated by TentInHimalayas we will use our best endeavours to address the issue with the relevant supplier during
+                                        your stay in India. However TentInHimalayas is unable to accept responsibility or liability for failures and omissions of its suppliers where it neither owns, manages or controls such suppliers. We do however exercise
+                                        care and attention when selecting and promoting the services of third parties to support your travel arrangements. However any assistance provided by TentInHimalayas in resolving a complaint in relation to any arrangements
+                                        provided by suppliers to TentInHimalayas is provided on a goodwill basis and in its capacity as agent for such suppliers.</p>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Behavior -->
                         <div class="accordion">
                             <div class="accordion-header" id="behavior">Behavior</div>
                             <div class="accordion-content">
                                 <div class="terms-section">
-                                    <p>When you book and travel with TentInHimalayas, you accept full responsibility for any damage or loss caused by you or any member of your party to our properties, equipment, staff and vehicles and those of our suppliers. Full payment for
-                                        any such damage or loss must be paid to TentInHimalayas or its suppliers upon request. TentInHimalayas reserve the right to terminate your stay or that of any person travelling with you due to threatening behavior, moral turpitude
-                                        or conduct which in TentInHimalayas's reasonable opinion justifies termination of your travel arrangements and in the event of such termination no refunds will be given. TentInHimalayas will not be under any obligation whatsoever to
-                                        pay compensation or meet any costs or expenses you may incur as a result of your stay being terminated.</p>
+                                    <p>When you book and travel with TentInHimalayas, you accept full responsibility for any damage or loss caused by you or any member of your party to our properties, equipment, staff and vehicles and those of our suppliers.
+                                        Full payment for any such damage or loss must be paid to TentInHimalayas or its suppliers upon request. TentInHimalayas reserve the right to terminate your stay or that of any person travelling with you due to threatening
+                                        behavior, moral turpitude or conduct which in TentInHimalayas's reasonable opinion justifies termination of your travel arrangements and in the event of such termination no refunds will be given. TentInHimalayas
+                                        will not be under any obligation whatsoever to pay compensation or meet any costs or expenses you may incur as a result of your stay being terminated.</p>
                                 </div>
                             </div>
                         </div>
@@ -413,41 +452,24 @@
     <script src="js/fooder-loader.js"></script>
     
     <script>
-        // Accordion functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const accordionHeaders = document.querySelectorAll('.accordion-header');
-            
-            accordionHeaders.forEach(header => {
-                header.addEventListener('click', function() {
-                    this.classList.toggle('active');
-                    const content = this.nextElementSibling;
-                    content.classList.toggle('active');
-                });
+        // Fade in elements when they come into view
+        function fadeInElements() {
+            document.querySelectorAll('.fade-in-element').forEach(function(element) {
+                var elementTop = element.getBoundingClientRect().top;
+                var elementBottom = elementTop + element.offsetHeight;
+                var viewportTop = window.pageYOffset;
+                var viewportBottom = viewportTop + window.innerHeight;
+                
+                if (elementBottom > viewportTop && elementTop < viewportBottom) {
+                    element.classList.add('visible');
+                }
             });
-            
-            // Smooth scrolling for table of contents
-            document.querySelectorAll('.toc a').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    
-                    if (targetElement) {
-                        // Open the accordion if it's not already open
-                        const accordionHeader = targetElement;
-                        if (!accordionHeader.classList.contains('active')) {
-                            accordionHeader.classList.add('active');
-                            accordionHeader.nextElementSibling.classList.add('active');
-                        }
-                        
-                        // Scroll to the element
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
+        }
+
+        // Trigger fade in on scroll and initial load
+        window.addEventListener('scroll', fadeInElements);
+        window.addEventListener('load', function() {
+            setTimeout(fadeInElements, 100);
         });
     </script>
 

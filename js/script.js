@@ -138,6 +138,49 @@
         return elem.offset().top + elem.outerHeight() >= $window.scrollTop() && elem.offset().top <= $window.scrollTop() + $window.height();
     }
 
+    // Add smooth scrolling to all links
+    $("a[href^='#']").on('click', function(event) {
+        // Exclude tab navigation links from smooth scrolling
+        // Check if the link is specifically a Bootstrap tab toggle
+        if ($(this).attr('data-toggle') === 'tab') {
+            // For tab links, we should not prevent default behavior
+            // Bootstrap will handle the tab switching
+            // Do not call event.preventDefault() or event.stopPropagation()
+            return;
+        }
+        
+        // Apply smooth scrolling only to non-tab links
+        if (this.hash !== "") {
+            event.preventDefault();
+            var hash = this.hash;
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top
+            }, 800, function(){
+                window.location.hash = hash;
+            });
+        }
+    });
+
+    // Fade in elements when they come into view
+    function fadeInElements() {
+        $('.fade-in-element').each(function() {
+            var elementTop = $(this).offset().top;
+            var elementBottom = elementTop + $(this).outerHeight();
+            var viewportTop = $(window).scrollTop();
+            var viewportBottom = viewportTop + $(window).height();
+            
+            if (elementBottom > viewportTop && elementTop < viewportBottom) {
+                $(this).addClass('visible');
+            }
+        });
+    }
+
+    // Trigger fade in on scroll and initial load
+    $(window).on('scroll', fadeInElements);
+    $(document).ready(function() {
+        fadeInElements();
+    });
+
     // Initialize scripts that require a loaded page
     $window.on('load', function() {
         // Progress bar
@@ -767,20 +810,6 @@
                 $capthcaItem.after("<span class='form-validation'></span>");
             }
         };
-
-        /**
-         * @desc Initialize Bootstrap tooltip with required placement
-         * @param {string} tooltipPlacement
-         */
-        function initBootstrapTooltip(tooltipPlacement) {
-            plugins.bootstrapTooltip.tooltip('dispose');
-
-            if (window.innerWidth < 576) {
-                plugins.bootstrapTooltip.tooltip({ placement: 'bottom' });
-            } else {
-                plugins.bootstrapTooltip.tooltip({ placement: tooltipPlacement });
-            }
-        }
 
         /**
          * @desc Initialize the gallery with set of images

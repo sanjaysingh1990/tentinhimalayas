@@ -34,7 +34,42 @@
             display: block;
         }
         
+        /* Enhanced animations and transitions */
+        .animated-element {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .fade-in-element {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in-element.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-in-element {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        
+        .slide-in-element.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scale-element {
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .scale-element:hover {
+            transform: scale(1.05);
+        }
         /* Blog detail styles */
+        
         .blog-detail-header {
             margin-bottom: 30px;
         }
@@ -230,7 +265,7 @@
                                 <p>Loading blog post...</p>
                             </div>
                         </article>
-                        
+
                         <div class="back-to-blog">
                             <a href="blog.html">← Back to Blog</a>
                         </div>
@@ -250,7 +285,7 @@
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/fooder-loader.js"></script>
-    
+
     <script>
         // Initialize Firebase
         const firebaseConfig = {
@@ -262,105 +297,19 @@
             messagingSenderId: "1031749484359",
             appId: "1:1031749484359:web:4416e21fd80f2a7d97d662"
         };
-        
+
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
-        
+
         // Blog detail functionality
         document.addEventListener('DOMContentLoaded', function() {
             const blogContainer = document.getElementById('blog-detail-container');
-            
-            // Get blog ID from URL parameter
+
+            // Get blog ID from URL
             const urlParams = new URLSearchParams(window.location.search);
             const blogId = urlParams.get('id') || 1;
-            
-            // Sample blog data (in a real implementation, this would come from Firebase)
-            const sampleBlog = {
-                id: blogId,
-                title: "Best Camping Spots in Kumaon Himalayas",
-                description: "Discover the most breathtaking camping locations in the Kumaon region of Uttarakhand that offer stunning views and unforgettable experiences.",
-                content: `
-                <p>The Kumaon region of Uttarakhand is a paradise for camping enthusiasts, offering a diverse range of landscapes from lush green valleys to snow-capped peaks. Whether you're a seasoned camper or a first-timer, the region has something to offer for everyone.</p>
-                
-                <h2>1. Leti Village</h2>
-                <p>Leti Village is one of the most popular camping destinations in the Kumaon region. Located at an altitude of approximately 6,500 feet, it offers breathtaking views of the Himalayan range. The village is known for its pristine beauty and peaceful environment, making it an ideal spot for those looking to escape the hustle and bustle of city life.</p>
-                
-                <p>The camping experience in Leti includes comfortable tents, delicious local cuisine, and guided nature walks. The best time to visit is between March and June, and September to November when the weather is pleasant and the skies are clear.</p>
-                
-                <h2>2. Dhakuri</h2>
-                <p>Dhakuri is another fantastic camping destination that offers a unique blend of natural beauty and adventure. Located at an altitude of 10,500 feet, it provides panoramic views of the Himalayas and is an excellent base for trekking expeditions.</p>
-                
-                <p>The camping facilities here include basic amenities with an emphasis on sustainability and minimal environmental impact. Visitors can enjoy activities like bird watching, nature photography, and short treks to nearby viewpoints.</p>
-                
-                <h2>3. Village Walks in Kumaon</h2>
-                <p>For those who prefer a more cultural experience, village walks combined with camping offer an excellent opportunity to interact with local communities and learn about their traditional way of life. These walks take you through terraced fields, ancient temples, and traditional houses, providing a glimpse into the rich cultural heritage of the region.</p>
-                
-                <p>The camping sites during village walks are usually set up in community spaces or designated areas, with local families often participating in the camping experience by sharing their stories and traditional meals.</p>
-                
-                <h2>Essential Tips for Camping in Kumaon</h2>
-                <p>1. Pack appropriate clothing for varying temperatures, especially if visiting during winter months.</p>
-                <p>2. Carry sufficient water and high-energy snacks for treks.</p>
-                <p>3. Respect local customs and traditions.</p>
-                <p>4. Follow Leave No Trace principles to preserve the natural beauty.</p>
-                <p>5. Obtain necessary permits for camping in protected areas.</p>
-                
-                <p>With its stunning landscapes, rich biodiversity, and warm local communities, the Kumaon region promises an unforgettable camping experience that will leave you with memories to cherish for a lifetime.</p>
-                `,
-                imageUrl: "images/slider-images/slider-1.webp",
-                author: "Admin",
-                createdAt: new Date('2025-04-15')
-            };
-            
-            // Function to format date
-            function formatDate(date) {
-                return date.toLocaleDateString('en-US', { 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric' 
-                });
-            }
-            
-            // Function to display blog detail
-            function displayBlogDetail(blog) {
-                const html = `
-                <div class="blog-detail-header">
-                    <h1 class="blog-detail-title">${blog.title}</h1>
-                    <div class="blog-detail-meta">
-                        By ${blog.author} on ${formatDate(blog.createdAt)}
-                    </div>
-                </div>
-                
-                <img src="${blog.imageUrl}" alt="${blog.title}" class="blog-detail-image" loading="lazy">
-                
-                <div class="blog-detail-content">
-                    <p>${blog.description}</p>
-                    ${blog.content}
-                </div>
-                
-                <div class="social-share">
-                    <h4>Share this post:</h4>
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}" target="_blank" class="social-icon facebook">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a href="https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(blog.title)}" target="_blank" class="social-icon twitter">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a href="https://wa.me/?text=${encodeURIComponent(window.location.href)}" target="_blank" class="social-icon whatsapp">
-                            <i class="fa fa-whatsapp"></i>
-                        </a>
-                    </div>
-                </div>
-                `;
-                
-                blogContainer.innerHTML = html;
-            }
-            
-            // Display the blog detail
-            displayBlogDetail(sampleBlog);
-            
-            // In a real implementation, you would fetch from Firebase like this:
-            /*
+
+            // Fetch blog from Firebase
             const db = firebase.firestore();
             db.collection("blogs").doc(blogId)
                 .get()
@@ -381,7 +330,6 @@
                     console.error("Error fetching blog: ", error);
                     blogContainer.innerHTML = '<p class="text-center">Error loading blog post. Please try again later.</p>';
                 });
-            */
         });
     </script>
 
