@@ -4,15 +4,14 @@
     // Initialize Firebase with error handling
     try {
         const config = {
-            apiKey: "AIzaSyCr_tQKCPR0i3IVkxMx40H8HmHd93GvrYc",
-            authDomain: "inapp-96885741.firebaseapp.com",
-            databaseURL: "https://inapp-96885741.firebaseio.com",
-            projectId: "inapp-96885741",
-            storageBucket: "inapp-96885741.appspot.com",
-            messagingSenderId: "1031749484359",
-            appId: "1:1031749484359:web:4416e21fd80f2a7d97d662"
+            apiKey: "AIzaSyBjcV4BykdV3boinmn_-LQZ4IHgTqUwKvw",
+            authDomain: "bubble-2d982.firebaseapp.com",
+            databaseURL: "https://bubble-2d982-default-rtdb.firebaseio.com",
+            projectId: "bubble-2d982",
+            storageBucket: "bubble-2d982.appspot.com",
+            messagingSenderId: "680561170660",
+            appId: "1:680561170660:web:64598540804f465c7274f1"
         };
-
         // Check if firebase is available before initializing
         if (typeof firebase !== 'undefined') {
             firebase.initializeApp(config);
