@@ -358,17 +358,19 @@
     <div class="snackbars" id="form-output-global"></div>
     <!-- Javascript-->
     <!-- Use production version of Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase.js"></script>
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/fooder-loader.js"></script>
-    <!-- Load blog test data directly -->
+    <script src="src/firebase/config.js"></script>
+    <!-- Load blog data using blogRepository -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Load test blog data directly without Firebase
-            loadBlogTestData();
+            // Load blog data using BlogRepository
+            loadBlogData();
         });
 
-        async function loadBlogTestData() {
+        async function loadBlogData() {
             const blogContainer = document.getElementById('blog-posts-container');
             if (!blogContainer) return;
 
@@ -376,35 +378,37 @@
                 // Show loading state
                 blogContainer.innerHTML = '<div class="text-center"><p>Loading blog posts...</p></div>';
 
-                // Simulate loading delay
-                await new Promise(resolve => setTimeout(resolve, 800));
+                // Check if Firebase is available
+                if (typeof firebase === 'undefined' || !firebase.apps.length) {
+                    throw new Error('Firebase not initialized');
+                }
 
-                // Sample blog data
-                const sampleBlogs = [{
-                    id: '1',
-                    title: 'Exploring the Hidden Valleys of Kumaon',
-                    excerpt: 'Discover the breathtaking beauty of Kumaon\'s hidden valleys, where ancient villages nestle between towering peaks and pristine forests.',
-                    tags: ['Travel', 'Adventure', 'Culture'],
-                    images: ['images/slider-images/slider-1.webp']
-                }, {
-                    id: '2',
-                    title: 'Essential Gear for Himalayan Camping',
-                    excerpt: 'Planning a camping trip in the Himalayas requires careful preparation and the right gear. Here\'s our essential checklist for mountain adventures.',
-                    tags: ['Camping', 'Gear', 'Himalayas'],
-                    images: ['images/slider-images/slider-5.webp']
-                }, {
-                    id: '3',
-                    title: 'Wildlife Encounters in the Himalayas',
-                    excerpt: 'The Himalayas are home to incredible wildlife. Learn how to responsibly observe and photograph these magnificent creatures in their natural habitat.',
-                    tags: ['Wildlife', 'Photography', 'Nature'],
-                    images: ['images/gallery/small/image-gallery-small-1.webp']
-                }];
+                // Initialize Firestore if not already done
+                const db = firebase.firestore();
+
+                // Fetch blogs from Firestore
+                const querySnapshot = await db.collection('blogs').orderBy("createdAt", "desc").get();
+
+                const blogs = [];
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    blogs.push({
+                        id: doc.id,
+                        title: data.title || '',
+                        excerpt: data.excerpt || '',
+                        description: data.description || '',
+                        tags: data.tags || [],
+                        images: data.images || [],
+                        youtubeVideoId: data.youtubeVideoId || '',
+                        createdAt: data.createdAt ? data.createdAt.toDate() : new Date()
+                    });
+                });
 
                 // Display blogs
-                displayBlogs(sampleBlogs, blogContainer);
+                displayBlogs(blogs, blogContainer);
 
                 // Create pagination
-                createPagination(sampleBlogs.length, 3, 1);
+                createPagination(blogs.length, 3, 1);
             } catch (error) {
                 console.error('Error loading blog data:', error);
                 blogContainer.innerHTML = '<div class="text-center"><p class="error-message">Failed to load blog content. Please try again later.</p></div>';
@@ -419,16 +423,19 @@
 
             let html = '<div class="blog-grid">';
             blogs.forEach(blog => {
+                        // Use the first image if available, otherwise use a default
+                        const imageUrl = blog.images && blog.images.length > 0 ? blog.images[0] : 'images/slider-images/slider-1.webp';
+
                         html += `
                 <div class="blog-card scale-element">
                     <div class="blog-card-image">
-                        <img src="${blog.images[0]}" alt="${blog.title}" loading="lazy">
+                        <img src="${imageUrl}" alt="${blog.title}" loading="lazy">
                     </div>
                     <div class="blog-card-content">
                         <h3 class="blog-card-title">${blog.title}</h3>
                         <p class="blog-card-excerpt">${blog.excerpt}</p>
                         <div class="blog-card-tags">
-                            ${blog.tags.map(tag => `<span class="blog-tag">${tag}</span>`).join('')}
+                            ${blog.tags && blog.tags.length > 0 ? blog.tags.map(tag => `<span class="blog-tag">${tag}</span>`).join('') : ''}
                         </div>
                         <a href="blog-detail.html?id=${blog.id}" class="blog-card-link">Read More →</a>
                     </div>

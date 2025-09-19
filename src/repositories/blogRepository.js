@@ -10,7 +10,7 @@ class BlogRepository {
             console.log('Firestore db object:', db);
 
             const querySnapshot = await db.collection("blogs")
-                .orderBy("createdAt", "desc")
+                // .orderBy("createdAt", "desc")
                 .get();
 
             console.log('Query snapshot received, docs count:', querySnapshot.size);
@@ -27,7 +27,8 @@ class BlogRepository {
                     data.excerpt,
                     data.tags,
                     data.images,
-                    data.createdAt.toDate()
+                    data.createdAt.toDate(),
+                    data.youtubeVideoId || ''
                 ));
             });
 
@@ -58,7 +59,8 @@ class BlogRepository {
                     data.excerpt,
                     data.tags,
                     data.images,
-                    data.createdAt.toDate()
+                    data.createdAt.toDate(),
+                    data.youtubeVideoId || ''
                 );
             } else {
                 console.log('Blog not found with id:', blogId);
