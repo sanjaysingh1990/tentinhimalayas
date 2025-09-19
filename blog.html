@@ -380,29 +380,25 @@
                 await new Promise(resolve => setTimeout(resolve, 800));
 
                 // Sample blog data
-                const sampleBlogs = [
-                    {
-                        id: '1',
-                        title: 'Exploring the Hidden Valleys of Kumaon',
-                        excerpt: 'Discover the breathtaking beauty of Kumaon\'s hidden valleys, where ancient villages nestle between towering peaks and pristine forests.',
-                        tags: ['Travel', 'Adventure', 'Culture'],
-                        images: ['images/slider-images/slider-1.webp']
-                    },
-                    {
-                        id: '2',
-                        title: 'Essential Gear for Himalayan Camping',
-                        excerpt: 'Planning a camping trip in the Himalayas requires careful preparation and the right gear. Here\'s our essential checklist for mountain adventures.',
-                        tags: ['Camping', 'Gear', 'Himalayas'],
-                        images: ['images/slider-images/slider-5.webp']
-                    },
-                    {
-                        id: '3',
-                        title: 'Wildlife Encounters in the Himalayas',
-                        excerpt: 'The Himalayas are home to incredible wildlife. Learn how to responsibly observe and photograph these magnificent creatures in their natural habitat.',
-                        tags: ['Wildlife', 'Photography', 'Nature'],
-                        images: ['images/gallery/small/image-gallery-small-1.webp']
-                    }
-                ];
+                const sampleBlogs = [{
+                    id: '1',
+                    title: 'Exploring the Hidden Valleys of Kumaon',
+                    excerpt: 'Discover the breathtaking beauty of Kumaon\'s hidden valleys, where ancient villages nestle between towering peaks and pristine forests.',
+                    tags: ['Travel', 'Adventure', 'Culture'],
+                    images: ['images/slider-images/slider-1.webp']
+                }, {
+                    id: '2',
+                    title: 'Essential Gear for Himalayan Camping',
+                    excerpt: 'Planning a camping trip in the Himalayas requires careful preparation and the right gear. Here\'s our essential checklist for mountain adventures.',
+                    tags: ['Camping', 'Gear', 'Himalayas'],
+                    images: ['images/slider-images/slider-5.webp']
+                }, {
+                    id: '3',
+                    title: 'Wildlife Encounters in the Himalayas',
+                    excerpt: 'The Himalayas are home to incredible wildlife. Learn how to responsibly observe and photograph these magnificent creatures in their natural habitat.',
+                    tags: ['Wildlife', 'Photography', 'Nature'],
+                    images: ['images/gallery/small/image-gallery-small-1.webp']
+                }];
 
                 // Display blogs
                 displayBlogs(sampleBlogs, blogContainer);
@@ -423,7 +419,7 @@
 
             let html = '<div class="blog-grid">';
             blogs.forEach(blog => {
-                html += `
+                        html += `
                 <div class="blog-card scale-element">
                     <div class="blog-card-image">
                         <img src="${blog.images[0]}" alt="${blog.title}" loading="lazy">

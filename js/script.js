@@ -47,10 +47,10 @@
                 output.removeClass("active error success");
                 form.removeClass('success');
             }, 1000);
-            
+
             return;
         }
-        
+
         var enqueryRef = firebase.database().ref("enquiry/");
 
         var formData = new FormData(form[0]);
