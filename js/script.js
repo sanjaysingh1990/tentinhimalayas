@@ -148,18 +148,65 @@
             // Do not call event.preventDefault() or event.stopPropagation()
             return;
         }
-        
+
         // Apply smooth scrolling only to non-tab links
         if (this.hash !== "") {
             event.preventDefault();
             var hash = this.hash;
             $('html, body').animate({
                 scrollTop: $(hash).offset().top
-            }, 800, function(){
+            }, 800, function() {
                 window.location.hash = hash;
             });
         }
     });
+
+    // Enhanced page transition system for navigation links
+    // Override the default page transition conditions to allow internal page navigation
+    function initEnhancedPageTransitions() {
+        // Check if we have the page transition system available
+        if (typeof pageTransition === 'function' && plugins.preloader.length && !isNoviBuilder) {
+            // Enhanced transition with visual effects
+            var target = document.querySelector('.page');
+            if (target) {
+                // Add modern transition class
+                target.classList.add('page-transition');
+            }
+
+            // Enhanced page transition for internal navigation
+            $("a[href$='.html']").not('[target="_blank"]').on('click', function(e) {
+                var href = $(this).attr('href');
+                var isCurrentPage = href === window.location.pathname.split('/').pop();
+
+                // Skip if it's the current page or external link
+                if (isCurrentPage || href.indexOf('://') > -1) {
+                    return;
+                }
+
+                e.preventDefault();
+
+                // Add visual feedback
+                $(this).addClass('transitioning');
+
+                // Enhanced transition with visual effects
+                if (target) {
+                    // Add exit animation class
+                    target.classList.add('page-exit');
+
+                    setTimeout(function() {
+                        target.classList.add('page-exit-active');
+                    }, 10);
+
+                    setTimeout(function() {
+                        window.location = href;
+                    }, 400); // Match CSS transition duration
+                } else {
+                    // Fallback to direct navigation if no target found
+                    window.location = href;
+                }
+            });
+        }
+    }
 
     // Fade in elements when they come into view
     function fadeInElements() {
@@ -168,7 +215,7 @@
             var elementBottom = elementTop + $(this).outerHeight();
             var viewportTop = $(window).scrollTop();
             var viewportBottom = viewportTop + $(window).height();
-            
+
             if (elementBottom > viewportTop && elementTop < viewportBottom) {
                 $(this).addClass('visible');
             }
@@ -179,6 +226,12 @@
     $(window).on('scroll', fadeInElements);
     $(document).ready(function() {
         fadeInElements();
+        initEnhancedPageTransitions(); // Initialize enhanced page transitions
+
+        // Add entrance animation to page content
+        setTimeout(function() {
+            $('.page').addClass('page-enter-active');
+        }, 100);
     });
 
     // Initialize scripts that require a loaded page

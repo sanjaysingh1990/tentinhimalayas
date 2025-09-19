@@ -34,8 +34,8 @@
         html.lt-ie-10 .ie-panel {
             display: block;
         }
-        
         /* Enhanced animations and transitions */
+        
         .animated-element {
             transition: all 0.3s ease-in-out;
         }
@@ -585,7 +585,7 @@
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/fooder-loader.js"></script>
-    
+
     <script>
         // Fade in elements when they come into view
         function fadeInElements() {
@@ -594,7 +594,7 @@
                 var elementBottom = elementTop + element.offsetHeight;
                 var viewportTop = window.pageYOffset;
                 var viewportBottom = viewportTop + window.innerHeight;
-                
+
                 if (elementBottom > viewportTop && elementTop < viewportBottom) {
                     element.classList.add('visible');
                 }

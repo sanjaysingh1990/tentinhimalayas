@@ -33,8 +33,8 @@
         html.lt-ie-10 .ie-panel {
             display: block;
         }
-        
         /* Enhanced animations and transitions */
+        
         .animated-element {
             transition: all 0.3s ease-in-out;
         }
@@ -67,6 +67,31 @@
         
         .scale-element:hover {
             transform: scale(1.05);
+        }
+        /* Enhanced Page Transition Effects */
+        
+        .page-transition {
+            transition: all 0.4s ease-in-out;
+        }
+        
+        .page-enter {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .page-enter-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .page-exit {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .page-exit-active {
+            opacity: 0;
+            transform: translateY(-30px);
         }
         /* Accordion styles */
         
@@ -185,6 +210,7 @@
                     data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="46px" data-xl-stick-up-offset="46px" data-xxl-stick-up-offset="106px"
                     data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
                     <div class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+
                     <div class="rd-navbar-aside-outer">
                         <div class="rd-navbar-aside">
                             <!-- RD Navbar Panel-->
@@ -201,6 +227,40 @@
                         </div>
                     </div>
 
+                    <div class="rd-navbar-main-outer">
+                        <div class="rd-navbar-main">
+                            <div class="rd-navbar-nav-wrap">
+                                <ul class="list-inline list-inline-md rd-navbar-corporate-list-social">
+                                    <li>
+                                        <a class="icon fa fa-facebook" href="https://www.facebook.com/profile.php?id=61573909692141" target="_blank"></a>
+                                    </li>
+                                    <li>
+                                        <a class="icon fa fa-twitter" href="https://x.com/tentinhimalayas" target="_blank"></a>
+                                    </li>
+
+                                    <li>
+                                        <a class="icon fa fa-instagram" href="https://instagram.com/tentinhimalayas?igshid=YmMyMTA2M2Y=" target="_blank"></a>
+                                    </li>
+                                    <li>
+                                        <a class="icon fa fa-linkedin" href="https://www.linkedin.com/in/tentin-himalayas-aab577356/" target="_blank"></a>
+                                    </li>
+                                </ul>
+                                <!-- RD Navbar Nav-->
+                                <ul class="rd-navbar-nav">
+                                    <li class="rd-nav-item"><a class="rd-nav-link" href="index.html">Home</a>
+                                    </li>
+                                    <li class="rd-nav-item"><a class="rd-nav-link" href="about.html">About</a>
+                                    </li>
+                                    <li class="rd-nav-item"><a class="rd-nav-link" href="contact-us.html">Contact Us</a>
+                                    </li>
+                                    <li class="rd-nav-item active"><a class="rd-nav-link" href="terms-optimized.html">Term and Conditions</a>
+                                    </li>
+                                    <li class="rd-nav-item"><a class="rd-nav-link" href="blog.html">Blog</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </nav>
             </div>
         </header>
@@ -450,7 +510,7 @@
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/fooder-loader.js"></script>
-    
+
     <script>
         // Fade in elements when they come into view
         function fadeInElements() {
@@ -459,7 +519,7 @@
                 var elementBottom = elementTop + element.offsetHeight;
                 var viewportTop = window.pageYOffset;
                 var viewportBottom = viewportTop + window.innerHeight;
-                
+
                 if (elementBottom > viewportTop && elementTop < viewportBottom) {
                     element.classList.add('visible');
                 }

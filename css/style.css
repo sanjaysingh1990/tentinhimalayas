@@ -14352,6 +14352,171 @@ html.tablet .ui-to-top {
     margin-top: -3px;
 }
 
+
+/* Page Entrance Animation */
+
+.page {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.page.page-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Enhanced Page Transitions */
+
+.page-transition-start {
+    animation: pageSlideOut 0.4s ease-in-out forwards;
+    transform-origin: center top;
+}
+
+@keyframes pageSlideOut {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-20px) scale(0.95);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-50px) scale(0.9);
+        opacity: 0;
+    }
+}
+
+
+/* Enhanced Navigation Link Effects */
+
+.rd-navbar-nav a {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.rd-navbar-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #01b3a7;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.rd-navbar-nav a:hover::after,
+.rd-navbar-nav a.active::after {
+    width: 100%;
+}
+
+.rd-navbar-nav a.transitioning {
+    color: #01b3a7;
+    transform: translateY(-2px);
+}
+
+
+/* Enhanced Preloader with Modern Design */
+
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;
+}
+
+.preloader.loaded {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+}
+
+.cssload-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.cssload-speeding-wheel {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border: 5px solid rgb(1, 179, 167);
+    border-radius: 50%;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    animation: cssload-spin 575ms infinite linear;
+    -o-animation: cssload-spin 575ms infinite linear;
+    -ms-animation: cssload-spin 575ms infinite linear;
+    -webkit-animation: cssload-spin 575ms infinite linear;
+    -moz-animation: cssload-spin 575ms infinite linear;
+}
+
+@keyframes cssload-spin {
+    100% {
+        transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-o-keyframes cssload-spin {
+    100% {
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-ms-keyframes cssload-spin {
+    100% {
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes cssload-spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes cssload-spin {
+    100% {
+        -moz-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.preloader-body p {
+    margin-top: 20px;
+    font-weight: 500;
+    color: #151515;
+    animation: textPulse 1.5s infinite ease-in-out;
+}
+
+@keyframes textPulse {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
 .rd-navbar-collapse-toggle span,
 .rd-navbar-collapse-toggle span:before,
 .rd-navbar-collapse-toggle span:after {

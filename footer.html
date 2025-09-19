@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
     <style>
         /* Enhanced animations and transitions */
+        
         .animated-element {
             transition: all 0.3s ease-in-out;
         }
@@ -144,7 +145,7 @@
                         <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span>&nbsp;</span>2025<span>TENT'IN HIMALAYAS</span>. All Rights Reserved. Design by <a href="https://www.templatemonster.com">TemplateMonster</a></p>
                     </div>
                     <div class="col-sm-6 col-md-4 text-md-right fade-in-element">
-                        <p class="rights"><a href="term_and_condition.html">Term and conditions</a></p>
+                        <p class="rights"><a href="terms-optimized.html">Term and conditions</a></p>
                     </div>
                 </div>
             </div>
@@ -160,7 +161,7 @@
 
             // Set the year inside the span with class "copyright-year"
             document.querySelector(".copyright-year").textContent = currentYear;
-            
+
             // Fade in elements when they come into view
             function fadeInElements() {
                 document.querySelectorAll('.fade-in-element').forEach(function(element) {
@@ -168,7 +169,7 @@
                     var elementBottom = elementTop + element.offsetHeight;
                     var viewportTop = window.pageYOffset;
                     var viewportBottom = viewportTop + window.innerHeight;
-                    
+
                     if (elementBottom > viewportTop && elementTop < viewportBottom) {
                         element.classList.add('visible');
                     }

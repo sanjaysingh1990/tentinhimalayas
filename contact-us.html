@@ -33,8 +33,8 @@
         html.lt-ie-10 .ie-panel {
             display: block;
         }
-        
         /* Enhanced animations and transitions */
+        
         .animated-element {
             transition: all 0.3s ease-in-out;
         }
@@ -67,6 +67,31 @@
         
         .scale-element:hover {
             transform: scale(1.05);
+        }
+        /* Enhanced Page Transition Effects */
+        
+        .page-transition {
+            transition: all 0.4s ease-in-out;
+        }
+        
+        .page-enter {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .page-enter-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .page-exit {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .page-exit-active {
+            opacity: 0;
+            transform: translateY(-30px);
         }
     </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7966070414985050" crossorigin="anonymous"></script>
@@ -131,7 +156,7 @@
 
                                     <li class="rd-nav-item active"><a class="rd-nav-link" href="contact-us.html">Contact Us</a>
                                     </li>
-                                    <li class="rd-nav-item"><a class="rd-nav-link" href="new_term_and_condition.html">Term and Conditions</a>
+                                    <li class="rd-nav-item"><a class="rd-nav-link" href="terms-optimized.html">Term and Conditions</a>
                                     </li>
                                     <li class="rd-nav-item"><a class="rd-nav-link" href="blog.html">Blog</a>
                                     </li>
@@ -282,7 +307,7 @@
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/fooder-loader.js"></script>
-    
+
     <script>
         // Fade in elements when they come into view
         function fadeInElements() {
@@ -291,7 +316,7 @@
                 var elementBottom = elementTop + element.offsetHeight;
                 var viewportTop = window.pageYOffset;
                 var viewportBottom = viewportTop + window.innerHeight;
-                
+
                 if (elementBottom > viewportTop && elementTop < viewportBottom) {
                     element.classList.add('visible');
                 }
