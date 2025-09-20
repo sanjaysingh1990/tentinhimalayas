@@ -55,7 +55,5 @@ if (typeof window !== 'undefined' && typeof firebase !== 'undefined') {
     }
 }
 
-// Export for module imports
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { db, firebaseApp };
-}
+// Export for ES6 module imports
+export { db, firebaseApp };

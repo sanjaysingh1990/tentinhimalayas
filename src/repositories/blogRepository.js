@@ -21,15 +21,18 @@ class BlogRepository {
                 const data = doc.data();
                 console.log('Document data:', data);
 
-                // Return the new model structure
-                blogs.push({
-                    id: doc.id,
-                    title: data.title,
-                    excerpt: data.excerpt,
-                    thumbnail: data.content && data.content.images && data.content.images.length > 0 ? data.content.images[0] : "",
-                    tags: data.tags,
-                    createdAt: data.createdAt ? data.createdAt.toDate() : new Date()
-                });
+                // Create proper Blog instances
+                const blog = new Blog(
+                    doc.id,
+                    data.title,
+                    '', // description is not in the main collection
+                    data.excerpt,
+                    data.tags || [], [data.thumbnail || ""], // Use images directly from data if available
+                    data.createdAt ? data.createdAt.toDate() : new Date(),
+                    data.youtubeVideoId || ''
+                );
+
+                blogs.push(blog);
             });
 
             console.log('All blogs processed, count:', blogs.length);
@@ -59,7 +62,7 @@ class BlogRepository {
             console.log('Main document data:', mainData);
 
             // Fetch content/details subcollection
-            const contentSnapshot = await db.collection("blogs").doc(blogId).collection("content").doc("details").get();
+            const contentSnapshot = await db.collection("blogs").doc(blogId).collection("content").doc("detail").get();
             let contentData = {};
 
             if (contentSnapshot.exists) {
@@ -75,7 +78,7 @@ class BlogRepository {
                 title: mainData.title,
                 excerpt: mainData.excerpt,
                 description: contentData.description || mainData.description || '',
-                tags: mainData.tags,
+                tags: mainData.tags || [],
                 images: contentData.images || mainData.images || [],
                 createdAt: mainData.createdAt ? mainData.createdAt.toDate() : new Date(),
                 youtubeVideoId: contentData.youtubeVideoId || mainData.youtubeVideoId || ''
