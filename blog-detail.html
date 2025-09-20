@@ -524,16 +524,16 @@
                 }
 
                 const data = doc.data();
-                
+
                 // Fetch content/details subcollection
-                const contentSnapshot = await db.collection('blogs').doc(blogId).collection('content').doc('details').get();
+                const contentSnapshot = await db.collection('blogs').doc(blogId).collection('content').doc('detail').get();
                 let contentData = {};
-                
+
                 if (contentSnapshot.exists) {
                     contentData = contentSnapshot.data();
                     console.log('Content subcollection data:', contentData);
                 }
-                
+
                 const blog = {
                     id: doc.id,
                     title: data.title || '',
