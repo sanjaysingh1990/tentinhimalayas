@@ -494,10 +494,12 @@
             try {
                 // Show loading state
                 blogContainer.innerHTML = '<div class="text-center"><p>Loading blog post...</p></div>';
+                console.log('Starting to load blog detail data...');
 
                 // Get blog ID from URL
                 const urlParams = new URLSearchParams(window.location.search);
                 const blogId = urlParams.get('id');
+                console.log('Blog ID from URL:', blogId);
 
                 if (!blogId) {
                     blogContainer.innerHTML = '<div class="text-center"><p class="error-message">Blog post not found.</p></div>';
@@ -508,6 +510,7 @@
                 if (typeof firebase === 'undefined' || !firebase.apps.length) {
                     throw new Error('Firebase not initialized');
                 }
+                console.log('Firebase is available');
 
                 // Initialize Firestore if not already done
                 const db = firebase.firestore();
@@ -521,22 +524,33 @@
                 }
 
                 const data = doc.data();
+                
+                // Fetch content/details subcollection
+                const contentSnapshot = await db.collection('blogs').doc(blogId).collection('content').doc('details').get();
+                let contentData = {};
+                
+                if (contentSnapshot.exists) {
+                    contentData = contentSnapshot.data();
+                    console.log('Content subcollection data:', contentData);
+                }
+                
                 const blog = {
                     id: doc.id,
                     title: data.title || '',
                     excerpt: data.excerpt || '',
-                    description: data.description || '',
+                    description: contentData.description || data.description || '',
                     tags: data.tags || [],
-                    images: data.images || [],
-                    youtubeVideoId: extractYouTubeId(data.youtubeVideoId) || '',
+                    images: contentData.images || data.images || [],
+                    youtubeVideoId: contentData.youtubeVideoId || data.youtubeVideoId || '',
                     createdAt: data.createdAt ? data.createdAt.toDate() : new Date()
                 };
+                console.log('Received blog:', blog);
 
                 // Display blog
                 displayBlogDetail(blog, blogContainer);
             } catch (error) {
                 console.error('Error loading blog data:', error);
-                blogContainer.innerHTML = '<div class="text-center"><p class="error-message">Failed to load blog content. Please try again later.</p></div>';
+                blogContainer.innerHTML = `<div class="text-center"><p class="error-message">Failed to load blog content. Please try again later.</p><p class="error-details">Error: ${error.message}</p></div>`;
             }
         }
 
@@ -555,6 +569,7 @@
         }
 
         function displayBlogDetail(blog, container) {
+            console.log('Displaying blog detail:', blog);
             // Format date
             const formattedDate = blog.createdAt.toLocaleDateString('en-US', {
                 year: 'numeric',
@@ -564,12 +579,13 @@
 
             // Generate YouTube video HTML if video ID exists
             let youtubeVideoHTML = '';
-            if (blog.youtubeVideoId) {
+            const youtubeId = extractYouTubeId(blog.youtubeVideoId);
+            if (youtubeId) {
                 youtubeVideoHTML = `
                 <div class="blog-youtube-video">
                     <h4>Watch Video</h4>
                     <div class="youtube-video-container">
-                        <iframe src="https://www.youtube.com/embed/${blog.youtubeVideoId}" 
+                        <iframe src="https://www.youtube.com/embed/${youtubeId}" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                 allowfullscreen></iframe>
                     </div>

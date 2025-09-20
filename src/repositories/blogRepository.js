@@ -2,7 +2,7 @@ import { db } from '../firebase/config.js';
 import Blog from '../models/Blog.js';
 
 class BlogRepository {
-    // Fetch all blogs from Firestore
+    // Fetch all blogs from Firestore with the new model structure
     static async getAllBlogs() {
         console.log('BlogRepository.getAllBlogs() called');
         try {
@@ -10,7 +10,7 @@ class BlogRepository {
             console.log('Firestore db object:', db);
 
             const querySnapshot = await db.collection("blogs")
-                // .orderBy("createdAt", "desc")
+                .orderBy("createdAt", "desc")
                 .get();
 
             console.log('Query snapshot received, docs count:', querySnapshot.size);
@@ -20,16 +20,16 @@ class BlogRepository {
                 console.log('Processing document:', doc.id);
                 const data = doc.data();
                 console.log('Document data:', data);
-                blogs.push(new Blog(
-                    doc.id,
-                    data.title,
-                    data.description,
-                    data.excerpt,
-                    data.tags,
-                    data.images,
-                    data.createdAt.toDate(),
-                    data.youtubeVideoId || ''
-                ));
+
+                // Return the new model structure
+                blogs.push({
+                    id: doc.id,
+                    title: data.title,
+                    excerpt: data.excerpt,
+                    thumbnail: data.content && data.content.images && data.content.images.length > 0 ? data.content.images[0] : "",
+                    tags: data.tags,
+                    createdAt: data.createdAt ? data.createdAt.toDate() : new Date()
+                });
             });
 
             console.log('All blogs processed, count:', blogs.length);
@@ -40,32 +40,57 @@ class BlogRepository {
         }
     }
 
-    // Fetch a single blog by ID
+    // Fetch a single blog by ID with data from both main collection and content/details subcollection
     static async getBlogById(blogId) {
         console.log('BlogRepository.getBlogById() called with id:', blogId);
         try {
             console.log('Attempting to fetch blog from Firestore with id:', blogId);
-            const doc = await db.collection("blogs").doc(blogId).get();
 
+            // Fetch main blog document
+            const doc = await db.collection("blogs").doc(blogId).get();
             console.log('Document fetch result, exists:', doc.exists);
 
-            if (doc.exists) {
-                const data = doc.data();
-                console.log('Document data:', data);
-                return new Blog(
-                    doc.id,
-                    data.title,
-                    data.description,
-                    data.excerpt,
-                    data.tags,
-                    data.images,
-                    data.createdAt.toDate(),
-                    data.youtubeVideoId || ''
-                );
-            } else {
+            if (!doc.exists) {
                 console.log('Blog not found with id:', blogId);
                 throw new Error("Blog not found");
             }
+
+            const mainData = doc.data();
+            console.log('Main document data:', mainData);
+
+            // Fetch content/details subcollection
+            const contentSnapshot = await db.collection("blogs").doc(blogId).collection("content").doc("details").get();
+            let contentData = {};
+
+            if (contentSnapshot.exists) {
+                contentData = contentSnapshot.data();
+                console.log('Content subcollection data:', contentData);
+            } else {
+                console.log('Content subcollection not found for blog id:', blogId);
+            }
+
+            // Combine data from main collection and subcollection
+            const blogData = {
+                id: doc.id,
+                title: mainData.title,
+                excerpt: mainData.excerpt,
+                description: contentData.description || mainData.description || '',
+                tags: mainData.tags,
+                images: contentData.images || mainData.images || [],
+                createdAt: mainData.createdAt ? mainData.createdAt.toDate() : new Date(),
+                youtubeVideoId: contentData.youtubeVideoId || mainData.youtubeVideoId || ''
+            };
+
+            return new Blog(
+                blogData.id,
+                blogData.title,
+                blogData.description,
+                blogData.excerpt,
+                blogData.tags,
+                blogData.images,
+                blogData.createdAt,
+                blogData.youtubeVideoId
+            );
         } catch (error) {
             console.error("Error fetching blog: ", error);
             throw error;
