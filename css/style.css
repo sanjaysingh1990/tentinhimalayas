@@ -24767,11 +24767,60 @@ disabled look for disabled choices in the results dropdown
 @media (min-width: 768px) and (max-width: 991.98px) {
     .slick-product {
         display: flex;
-        margin-left: -6px;
-        margin-right: -6px;
-    }
-    .slick-product .carousel-parent,
-    .slick-product .child-carousel {
+        .slick-product {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .slick-product .carousel-parent,
+        .slick-product .child-carousel {}
+        /* Blog YouTube Video Styles */
+        .blog-youtube-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .blog-youtube-container iframe {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 768px) {
+            .blog-youtube-container iframe {
+                height: 250px;
+            }
+        }
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .blog-youtube-container iframe {
+                height: 350px;
+            }
+        }
+        .slick-product {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .slick-product .carousel-parent,
+        .slick-product .child-carousel {}
+        /* Blog YouTube Video Styles */
+        .blog-youtube-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .blog-youtube-container iframe {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 768px) {
+            .blog-youtube-container iframe {
+                height: 250px;
+            }
+        }
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .blog-youtube-container iframe {
+                height: 350px;
+            }
+        }
         padding-left: 6px;
         padding-right: 6px;
     }
@@ -25846,3 +25895,29 @@ screen and (max-height: 300px) {
 
 
 /* Add to your CSS file */
+
+
+/* Blog YouTube Video Styles */
+
+.blog-youtube-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.blog-youtube-container iframe {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .blog-youtube-container iframe {
+        height: 250px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .blog-youtube-container iframe {
+        height: 350px;
+    }
+}

@@ -45,6 +45,18 @@ class BlogDetail {
     }
 
     displayBlog(blog) {
+        // Check if blog has a YouTube video ID
+        const youtubeId = blog.getYouTubeId();
+        const youtubeSection = youtubeId ? `
+            <div class="blog-youtube-container">
+                <iframe width="100%" height="400" src="https://www.youtube.com/embed/${youtubeId}" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+        ` : '';
+
         const html = `
             <div class="blog-detail-header">
                 <h1 class="blog-detail-title">${blog.title}</h1>
@@ -56,6 +68,8 @@ class BlogDetail {
             <div class="blog-gallery-container">
                 ${Gallery.render(blog.images)}
             </div>
+            
+            ${youtubeSection}
             
             <div class="blog-detail-content">
                 ${blog.description}
