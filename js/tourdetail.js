@@ -210,13 +210,16 @@ $(document).ready(function() {
 
 
         // Basic info tab info
-        var htmlText = '<h5>Lay down in the lap of nature</h5>' +
-            '<p>The days are gone when people wanted to enjoy their vacations at urbanized, highly developed, and hi-tech places. Nowadays, people are touring the natural landscape to seek fresh, breathable air and have a peaceful vacation away from heavy traffic, noise, and crowd. Leti is a pristine place where you can reach through a village walk and enjoy the jaw-dropping natural Himalayan beauty.Leti village is located in Kapkot tehsil of Bageshwar district in Uttarakhand, India. It is situated 35km away from sub-district headquarter Kapkot (tehsildar office) and 59km away from district headquarter Bageshwar.' +
-            'Camping sounds crushing when you are stuck within your comfort zone.Here we bring you an opportunity to come out of your comfort zone and stay a few days in the lap of the Himalayas and' +
-            'let nature embrace you with the love of its purity.Let the morning alarms of the original chirping birds’ sound wake you up' +
-            'while the lullaby created by the blowing wind would make you sleep at night.You will discover your morning fresh by breathing the fresh air with the fragrance of moist grass.' +
-            'Leti camping includes the jungle walk, lunch at the site with a touch of local Kumaonan flavours, or even a packed lunch during the Leti walk.Even river rafting is available during a particular season.Rely on us' +
-            'for quality services, the best facilities, and comfortable convinces during your stay so that you will not miss your comfort zone amenities. </p>'
+        var htmlText = '<h5>Lay Down in the Lap of Nature</h5>' +
+            '<p>Escape urban life and experience the pristine beauty of Leti village, located in Kapkot tehsil of Bageshwar district, Uttarakhand, India.</p>' +
+            '<p>Key location details:</p>' +
+            '<ul>' +
+            '<li>35km from Kapkot sub-district headquarters</li>' +
+            '<li>59km from Bageshwar district headquarters</li>' +
+            '</ul>' +
+            '<p>Leti camping offers you the chance to step out of your comfort zone and immerse yourself in the Himalayas. Wake up to birdsong and fall asleep to the lullaby of the wind while breathing fresh air with the fragrance of moist grass.</p>' +
+
+            '<p>Our quality services and facilities ensure you enjoy all the comforts of home while embracing natures purity.</p>'
 
 
         // '  <iframe  src="https://www.youtube.com/embed/tgbNymZ7vqY" frameborder="0" allowfullscreen></iframe>'
@@ -225,15 +228,13 @@ $(document).ready(function() {
 
 
         // Camp facilities tab data              
-        var htmlText2 = '<p>We know the first thought that blinks into your mind while deciding upon the camping is – whether it would be a comfortable trip. You must be thinking of your cozy bed with a soft pillow and a warm quilt that wraps you to give the full warmth for a restful sleep. No worries! We will take care of all your necessities to provide a relaxed camping experience. The amenities during the camp include – </p>' +
-
+        var htmlText2 = '<p>Enjoy a comfortable camping experience with all the amenities you need for a restful stay in nature:</p>' +
             '<ul class="row-16 list-0 list-custom list-marked list-marked-sm list-marked-secondary">' +
-            '<li>Safe and quality camping with exceptional quality tents</li>' +
+            '<li>Safe and quality camping with exceptional tents</li>' +
             '<li>Superior bedding with excellent sleeping bags</li>' +
-            '<li>Yummy meals include veg as well as non-veg cuisines</li>' +
-            '<li>Every day three timely meals</li>' +
-            '<li>Clean bathrooms and toilets with the availability of hot and cold water</li>' +
-            '<li>Availability of solar electricity for your safety and convenience</li>' +
+            '<li>Delicious meals (veg and non-veg) for all three daily meals</li>' +
+            '<li>Clean bathrooms and toilets with hot and cold water</li>' +
+            '<li>Solar electricity for your safety and convenience</li>' +
             '<li>Sufficient power backup for electricity management</li>' +
             '</ul>'
         $('#tabs-4-2').html(htmlText2);
@@ -243,12 +244,12 @@ $(document).ready(function() {
         // Camp activities tab data              
         var htmlText3 =
             '<ul class="row-16 list-0 list-custom list-marked list-marked-sm list-marked-secondary">' +
-            '<li><b>Day 1-</b> We will gather at Almora, stay there all night, and enjoy a delicious dinner. Here we will get a chance to explore the beauty of Kasar.</li>' +
-            '<li><b>Day 2-</b> After having a delightful breakfast, we will head to Leti. The driveway consists of 3 hours, during which you will spoil yourself with the hypnotic gorgeousness of nature, picturesque landscape, and fascinating weather. You will feel yourself in paradise. After reaching Leti, a 30 min walk can lead you to the campsite. You will discover all the comforts of your home in our customized tents, where you will stay for the night.</li>' +
-            '<li><b>Day 3-</b> After breakfast, you will initiate jungle walks and lunch at the campsite.</li>' +
-            '<li><b>Day 4-</b> Here comes the chance for Leti walk with a picnic lunch with Kumaonan flavors that regional people cook at a beautiful spot you discover during your walk.</li>' +
-            '<li><b>Day 5-</b> Another day to have Leti walk to sightsee and embrace nature, some more stunning and fascinating landscapes in the Leti region. Here you will have a packed lunch.</li>' +
-            '<li><b>Day 6-</b> We will step back to Kasar and will wave your bye to Almora, and you will lead towards your destination.</li>' +
+            '<li><b>Day 1:</b> Gather at Almora for dinner and overnight stay. Explore the beauty of Kasar.</li>' +
+            '<li><b>Day 2:</b> After breakfast, drive 3 hours to Leti through picturesque landscapes. A 30-minute walk leads to the campsite with comfortable customized tents.</li>' +
+            '<li><b>Day 3:</b> After breakfast, enjoy jungle walks and lunch at the campsite.</li>' +
+            '<li><b>Day 4:</b> Leti walk with a picnic lunch featuring local Kumaon flavors at a scenic spot.</li>' +
+            '<li><b>Day 5:</b> Another Leti walk to sightsee stunning landscapes in the region with packed lunch.</li>' +
+            '<li><b>Day 6:</b> Return to Kasar and depart for Almora and your final destination.</li>' +
             '</ul>'
 
 
