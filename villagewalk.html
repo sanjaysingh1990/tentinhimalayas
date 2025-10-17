@@ -556,13 +556,24 @@
             <div class="container">
                 <h3>Ready for Your Village Walk Adventure?</h3>
                 <p class="mb-4">Book your journey or get in touch with our team for more information</p>
-                <div class="button-group">
-                    <a class="btn btn-primary mr-3" href="https://docs.google.com/forms/d/e/1FAIpQLSeyJuIgvorD868VjlvBZIMsGVxohq9auOxrMmQIpeELExPqrg/viewform" target="_blank">Enquire Now</a>
-                    <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScLTGheE5-kCnazz-WDeSUN10vi7s3eB7mfUXVfq9kRndUJvg/viewform" target="_blank">Book Your Adventure</a>
+                <div class="button-group" style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
+                    <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSeyJuIgvorD868VjlvBZIMsGVxohq9auOxrMmQIpeELExPqrg/viewform" target="_blank" style="margin-right: 0; margin-bottom: 15px;">Enquire Now</a>
+                    <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScLTGheE5-kCnazz-WDeSUN10vi7s3eB7mfUXVfq9kRndUJvg/viewform" target="_blank" style="margin-right: 0;">Book Your Adventure</a>
                 </div>
             </div>
         </section>
-
+        <style>
+            @media (min-width: 768px) {
+                .button-group {
+                    flex-direction: row !important;
+                    justify-content: center !important;
+                }
+                .button-group .btn:first-child {
+                    margin-right: 15px !important;
+                    margin-bottom: 0 !important;
+                }
+            }
+        </style>
 
         <!-- Photo Gallery-->
         <section id="gallery-section" class="section section-sm section-fluid bg-default">
