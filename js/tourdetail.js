@@ -125,37 +125,30 @@ $(document).ready(function() {
         // "can capture the <b><i>mountain ranges of Nanda Devi</b></i> all the way in a single frame! </p>" +
 
         // Basic info tab info
-        var htmlText = "<h5> A gateway to Paradise</h5><p><b>Dhakuri</b> is a small hamlet in the lap of nature, surrounded by the flora and fauna of high" +
-            'Dhakuri is a fascinating place with majestic natural charm;' +
-            'it is located in the Bageshwar district of Uttrakhand.Its charisma pulls the nature lover to reach closer to such landscapes.It even allows them to trek to get closer to the mountains and picturesque scenery.Small trekking from the campsite will give you a completely different view you have never imagined.' +
-            'Dhakuri opens up two separate trekking sites, Pindari glacier, and Sunderdhunga.Both the sites are virgin territories with completely untouched nature yet to be explored.Lust grasslands and meadows cover the entire region of Dhakuri;' +
-            'forests filled up with sky - creeping horse chestnut and oak trees, snowcapped mountains, and wind that freeze the marrow.A short climb from the campsite to Dhakuri - Khal can lead you to an enticing and magnificent world of beautiful mountains and a mesmerizing sunrise.Approximately an hours walk from here towards the southwest through the forested ridge will help you reach Chilta-top. You will be amazed to see all the flats and high-altitude grasslands. ' +
-            'Classy stay with all your comforts' +
-            'We know going on a trip is exciting until you discover comfort similar to your home.We are available here to provide you with all the comforts of your home at a lovely site with breathable fresh air and lust greenery surrounded by mountains and dense forests.Rely on us' +
-            'for quality services to make you feel like you are at home or even at better place.'
+        var htmlText = "<h5>A Gateway to Paradise</h5>" +
+            "<p><b>Dhakuri</b> is a charming hamlet in Bageshwar district, Uttarakhand, offering majestic natural beauty with snow-capped mountains and lush meadows.</p>" +
+            "<p>This pristine location serves as the gateway to two untouched trekking sites - Pindari Glacier and Sunderdhunga, perfect for nature enthusiasts.</p>" +
+            "<p>From short treks around the campsite to exploring Dhakuri-Khal for breathtaking sunrise views, or reaching Chilta-top for panoramic mountain vistas, Dhakuri offers unforgettable experiences.</p>" +
+            "<p>Enjoy comfortable stays with all home amenities while being surrounded by fresh air, greenery, and stunning mountain views.</p>";
 
         $('#tabs-4-1').html(htmlText);
 
 
 
         // Camp facilities tab data              
-        var htmlText2 = '<p>Switching from home bed to camp bed which seems not comfortable to everyone. We here take care of the same feeling by providing high quality of tent and sleeping begs. </p>' +
-
+        var htmlText2 = '<p>Enjoy comfortable camping with high-quality equipment and amenities for a home-like experience in nature:</p>' +
             '<ul class="row-16 list-0 list-custom list-marked list-marked-sm list-marked-secondary">' +
-            '<li>Pick and drop from Kathgodam to Kathgodam</li>' +
-            '<li>Quality tents and sleeping bags</li>' +
-            '<li>Forest permit and entrance fee</li>' +
-            '<li>Hygienically cooked, luscious food</li>' +
-            '<li>Proper three meals in a day that would be of Kumaon cuisines</li>' +
-            '<li>Regular beverages (tea/coffee) and snacks</li>' +
+            '<li>Round-trip transportation from Kathgodam</li>' +
+            '<li>Premium tents, sleeping bags, and cozy mattresses</li>' +
+            '<li>All forest permits and entrance fees covered</li>' +
+            '<li>Hygienic, delicious Kumaon cuisine for all three meals</li>' +
+            '<li>Regular beverages (tea/coffee) and snacks provided</li>' +
             '<li>Separate toilet tents for ladies and gents</li>' +
-            '<li>Kitchen team to cook food for you</li>' +
-            '<li>Liner</li>' +
-            '<li>Separate Toilet tents – Ladies and Gents</li>' +
-            '<li>Quality mattresses to make you feel cozy</li>' +
-            '<li>Experienced trek leader guide and technical guide to support you during the trekking</li>' +
-            '<li>Availability of Medical kit</li>' +
-            '<li>Availability of oxygen cylinder, crampons, and gaiters</li>' +
+            '<li>Dedicated kitchen team for meal preparation</li>' +
+            '<li>Liner and separate toilet facilities</li>' +
+            '<li>Experienced trek leaders and technical guides</li>' +
+            '<li>Complete medical kit and safety equipment</li>' +
+            '<li>Oxygen cylinder, crampons, and gaiters available</li>' +
             '</ul>'
 
         $('#tabs-4-2').html(htmlText2);
@@ -163,14 +156,10 @@ $(document).ready(function() {
         // Camp activities tab data              
         var htmlText3 =
             '<ul class="row-16 list-0 list-custom list-marked list-marked-sm list-marked-secondary">' +
-            '<li><b>Day 1-</b> - It is a day devoted to a drive from Kathgodam to Khali-dhar. On the way, you will see captivating views of beautiful forests and lofty mountains. You will travel around 199 KM to reach Khali-dhar.</li>' +
-            '<li><b>Day 2-</b> - The day when you initiate your trekking from Ratmati to Dhakuri, the way consists of 9.3 KM of trekking.' +
-            'Rest in camp while getting fascinating views of mountains and will have walks towards Dhakuri-Khal to be acculturated with the surrounding.' +
-            'Altitude - 2086 mts</li>' +
-            '<li><b>Day 3-</b> - Here, you will trek from Dhakuri to Chilta Top; it consists of 2.5 km of trekking.' +
-            'You will get an enthralling 180° mountain view from Kumaon Himalaya to Nepal Himalaya.' +
-            'Altitude – 3400 Mts</li>' +
-            '<li><b>Day 4-</b> - Another trek to get a hypnotic mountainous view from Dhakuri to Dhur. It consists of a 3 km trek. Further, we will head back to Kathgodam.</li>' +
+            '<li><b>Day 1:</b> Drive from Kathgodam to Khali-dhar (199 KM) with captivating views of forests and lofty mountains.</li>' +
+            '<li><b>Day 2:</b> Trek from Ratmati to Dhakuri (9.3 KM). Rest in camp with fascinating mountain views and walks to Dhakuri-Khal. Altitude: 2086 mts.</li>' +
+            '<li><b>Day 3:</b> Trek from Dhakuri to Chilta Top (2.5 KM) with enthralling 180° mountain views from Kumaon to Nepal Himalaya. Altitude: 3400 mts.</li>' +
+            '<li><b>Day 4:</b> Trek from Dhakuri to Dhur (3 KM) for hypnotic mountainous views, then return to Kathgodam.</li>' +
             '</ul>'
 
 
